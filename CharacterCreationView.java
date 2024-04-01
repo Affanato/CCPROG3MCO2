@@ -432,4 +432,5 @@ public class CharacterCreationView {
     public void disposeFrame () {
         this.mainFrame.dispose();
     }
+
 }
