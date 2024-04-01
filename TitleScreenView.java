@@ -3,13 +3,12 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class TitleScreenView {
-    private JFrame mainFrame = new JFrame("Elden Rouge: CCPROG3 MCO Cosing & Tujan");
-    private JButton startButton;
-    private JButton exitButton;
-    private JLabel titleHeader;
+    private final JFrame mainFrame = new JFrame("Elden Rouge: CCPROG3 MCO Cosing & Tujan");
+    private final JButton startButton;
+    private final JButton exitButton;
 
     public TitleScreenView () {
-        titleHeader = new JLabel("Elden Rogue");
+        JLabel titleHeader = new JLabel("Elden Rogue");
         titleHeader.setForeground(Color.ORANGE);
         titleHeader.setBounds(200,50,400,100);
         titleHeader.setFont(new Font("Garamond", Font.BOLD,70));

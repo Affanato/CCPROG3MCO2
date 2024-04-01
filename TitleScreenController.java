@@ -5,7 +5,7 @@ public class TitleScreenController {
 
     private int startToggle;
     private TitleScreenView titleScreenView;
-    private TitleScreenModel titleScreenModel;
+    private final TitleScreenModel titleScreenModel;
 
     public TitleScreenController(TitleScreenModel titleScreenModel) {
         this.titleScreenModel = titleScreenModel;
@@ -27,24 +27,23 @@ public class TitleScreenController {
         });
     }
 
-public void showTitleScreen ()
-{
-    titleScreenView = new TitleScreenView();
-    titleScreenView.addStartButtonListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            startToggle = 1; //
-            titleScreenView.disposeFrame();
-            titleScreenModel.gameStarter(startToggle);
-        }
-    });
-    titleScreenView.addExitButtonListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            startToggle = 0;
-            titleScreenModel.gameStarter(startToggle);
-        }
-    });
-}
+    public void showTitleScreen () {
+        titleScreenView = new TitleScreenView();
+        titleScreenView.addStartButtonListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                startToggle = 1; //
+                titleScreenView.disposeFrame();
+                titleScreenModel.gameStarter(startToggle);
+            }
+        });
+        titleScreenView.addExitButtonListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                startToggle = 0;
+                titleScreenModel.gameStarter(startToggle);
+            }
+        });
+    }
 
 }
