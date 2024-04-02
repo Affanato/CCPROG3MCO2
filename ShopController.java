@@ -14,10 +14,9 @@ public class ShopController {
 
     /*public void displayShopItems() {
         view.displayShopItems(model);
-    }
-/*
+    } */
 
-     */
+
     public void purchaseItem(int index) {
         if (index >= 0 && index < model.getArrayListSize()) {
             Weapon weapon = model.getWeapon(index);
