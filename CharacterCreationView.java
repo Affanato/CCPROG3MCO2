@@ -4,15 +4,15 @@ import java.awt.event.ActionListener;
 public class CharacterCreationView {
     private final JFrame mainFrame = new JFrame("Elden Rouge: CCPROG3 MCO Cosing & Tujan");
     private final JTextField characterNameField;
+    private JLabel feedbackLabel;
     private final JButton class1;
     private final JButton class2;
     private final JButton class3;
     private final JButton class4;
     private final JButton class5;
     private final JButton class6;
-    private final JButton confirmAndGo;
     private final JButton backToTitle;
-    private JButton markedTile;
+
 
     public CharacterCreationView() {
         JLabel characterCreation = new JLabel("Character Creation");
@@ -310,17 +310,17 @@ public class CharacterCreationView {
         class6.setFont(new Font("Garamond", Font.BOLD,30));
         class6.setBorder(BorderFactory.createEtchedBorder());
 
-        confirmAndGo = new JButton("Confirm");
-        confirmAndGo.setFocusPainted(false);
-        confirmAndGo.setBounds(350,420,100,25);
-        confirmAndGo.setFont(new Font("Garamond", Font.BOLD,15));
-        confirmAndGo.setBorder(BorderFactory.createEtchedBorder());
-
         backToTitle = new JButton("Return to Title");
         backToTitle.setFocusPainted(false);
         backToTitle.setBounds(20,420,125,25);
         backToTitle.setFont(new Font("Garamond", Font.BOLD,15));
         backToTitle.setBorder(BorderFactory.createEtchedBorder());
+
+        this.feedbackLabel = new JLabel();
+        this.feedbackLabel.setPreferredSize(new Dimension(220, 30));
+        this.feedbackLabel.setForeground(Color.RED);
+        this.feedbackLabel.setBounds(320,380,200,100);
+        this.feedbackLabel.setFont(new Font("Garamond", Font.BOLD, 20));
 
         Container contentPane = mainFrame.getContentPane();
         contentPane.setBackground(Color.BLACK);
@@ -389,8 +389,8 @@ public class CharacterCreationView {
         mainFrame.add(class4);
         mainFrame.add(class5);
         mainFrame.add(class6);
-        mainFrame.add(confirmAndGo);
         mainFrame.add(backToTitle);
+        mainFrame.add(this.feedbackLabel);
 
         mainFrame.setVisible(true);
     }
@@ -422,10 +422,6 @@ public class CharacterCreationView {
         class6.addActionListener(listener);
     }
 
-    public void addConfirmAndGoListener(ActionListener listener) {
-        confirmAndGo.addActionListener(listener);
-    }
-
     public void addBackToTitleListener(ActionListener listener) {
         backToTitle.addActionListener(listener);
     }
@@ -434,12 +430,8 @@ public class CharacterCreationView {
         return characterNameField.getText();
     }
 
-    public void setMarkedTile(JButton tile) {
-        this.markedTile = tile;
-    }
-
-    public JButton getMarkedTile() {
-        return markedTile;
+    public void setFeedbackLabel(String text) {
+        feedbackLabel.setText(text);
     }
 
     public void disposeFrame () {
