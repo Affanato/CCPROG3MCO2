@@ -16,84 +16,84 @@ public class CharacterCreationController {
 
             }
         });
-        characterCreationView.addClass1Listener(new ActionListener() {
+        characterCreationView.addJob1Listener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (selectedName != null) {
                     selectedClassIndex = 1;
                     characterCreationView.disposeFrame();
-                    characterCreationModel.createPlayer(selectedName, selectedClassIndex);
+                    characterCreationModel.createCharacter(selectedName, selectedClassIndex);
                 } else {
                     characterCreationView.setFeedbackLabel("Please enter a name");
                 }
             }
         });
 
-        characterCreationView.addClass1Listener(new ActionListener() {
+        characterCreationView.addJob1Listener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (selectedName != null) {
+                    selectedClassIndex = 1;
+                    characterCreationView.disposeFrame();
+                    characterCreationModel.createCharacter(selectedName, selectedClassIndex);
+                } else {
+                    characterCreationView.setFeedbackLabel("Please enter a name");
+                }
+            }
+        });
+
+        characterCreationView.addJob2Listener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (selectedName != null) {
                     selectedClassIndex = 2;
                     characterCreationView.disposeFrame();
-                    characterCreationModel.createPlayer(selectedName, selectedClassIndex);
+                    characterCreationModel.createCharacter(selectedName, selectedClassIndex);
                 } else {
                     characterCreationView.setFeedbackLabel("Please enter a name");
                 }
             }
         });
 
-        characterCreationView.addClass2Listener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (selectedName != null) {
-                    selectedClassIndex = 2;
-                    characterCreationView.disposeFrame();
-                    characterCreationModel.createPlayer(selectedName, selectedClassIndex);
-                } else {
-                    characterCreationView.setFeedbackLabel("Please enter a name");
-                }
-            }
-        });
-
-        characterCreationView.addClass3Listener(new ActionListener() {
+        characterCreationView.addJob3Listener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (selectedName != null) {
                     selectedClassIndex = 3;
                     characterCreationView.disposeFrame();
-                    characterCreationModel.createPlayer(selectedName, selectedClassIndex);
+                    characterCreationModel.createCharacter(selectedName, selectedClassIndex);
                 } else {
                     characterCreationView.setFeedbackLabel("Please enter a name");
                 }
             }
         });
 
-        characterCreationView.addClass4Listener(new ActionListener() {
+        characterCreationView.addJob4Listener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (selectedName != null) {
                     selectedClassIndex = 4;
                     characterCreationView.disposeFrame();
-                    characterCreationModel.createPlayer(selectedName, selectedClassIndex);
+                    characterCreationModel.createCharacter(selectedName, selectedClassIndex);
                 } else {
                     characterCreationView.setFeedbackLabel("Please enter a name");
                 }
             }
         });
 
-        characterCreationView.addClass5Listener(new ActionListener() {
+        characterCreationView.addJob5Listener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (selectedName != null) {
                     selectedClassIndex = 5;
                     characterCreationView.disposeFrame();
-                    characterCreationModel.createPlayer(selectedName, selectedClassIndex);
+                    characterCreationModel.createCharacter(selectedName, selectedClassIndex);
                 } else {
                     characterCreationView.setFeedbackLabel("Please enter a name");
                 }
             }
         });
 
-        characterCreationView.addClass6Listener(new ActionListener() {
+        characterCreationView.addJob6Listener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (selectedName != null) {
                     selectedClassIndex = 6;
                     characterCreationView.disposeFrame();
-                    characterCreationModel.createPlayer(selectedName, selectedClassIndex);
+                    characterCreationModel.createCharacter(selectedName, selectedClassIndex);
                 } else {
                     characterCreationView.setFeedbackLabel("Please enter a name");
                 }
