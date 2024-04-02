@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class ShopController {
-    /*
+
     private ShopModel model;
     private ShopView view;
     private Scanner scanner;
@@ -12,10 +12,12 @@ public class ShopController {
         this.scanner = new Scanner(System.in);
     }
 
-    public void displayShopItems() {
+    /*public void displayShopItems() {
         view.displayShopItems(model);
     }
+/*
 
+     */
     public void purchaseItem(int index) {
         if (index >= 0 && index < model.getArrayListSize()) {
             Weapon weapon = model.getWeapon(index);
@@ -27,7 +29,7 @@ public class ShopController {
     }
 
     public void runShop() {
-        displayShopItems();
+        //displayShopItems();
         if (!model.isEmpty()) {
             System.out.print("Enter the index of the item you want to purchase (or -1 to exit): ");
             int choice = scanner.nextInt();
@@ -38,5 +40,5 @@ public class ShopController {
             view.displayErrorMessage("There are no more items in the shop.");
         }
     }
-     */
+
 }
