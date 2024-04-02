@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class ShopController {
+    /*
     private ShopModel model;
     private ShopView view;
     private Scanner scanner;
@@ -37,4 +38,5 @@ public class ShopController {
             view.displayErrorMessage("There are no more items in the shop.");
         }
     }
+     */
 }
