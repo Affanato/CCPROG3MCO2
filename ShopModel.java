@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class ShopModel {
-    /*
+
     private ArrayList<Weapon> inventory = new ArrayList<>();
 
     public ShopModel() {
@@ -39,5 +39,5 @@ public class ShopModel {
     public boolean isEmpty() {
         return inventory.isEmpty();
     }
-     */
+
 }
