@@ -434,7 +434,7 @@ public class CharacterCreationView {
         return characterNameField.getText();
     }
 
-    public void setMarkedTile(ColorMarkableTile tile) {
+    public void setMarkedTile(JButton tile) {
         this.markedTile = tile;
     }
 
