@@ -9,7 +9,7 @@ public class TitleScreenModel {
 
     public void gameStarter(int toggle) {  // TitleScreen
         if (toggle == 1) {
-            //CharacterCreationController characterCreationController = new CharacterCreationController(titleScreenController);
+            CharacterCreationController characterCreationController = new CharacterCreationController();
         } else if (toggle == 0) {
             System.exit(0);
         }

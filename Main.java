@@ -1,5 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-        TitleScreenModel game = new TitleScreenModel();
+
+        CharacterCreationController game = new CharacterCreationController();
+        //TitleScreenModel game = new TitleScreenModel();
     }
 }
