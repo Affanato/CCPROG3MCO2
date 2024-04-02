@@ -5,12 +5,12 @@ public class CharacterCreationView {
     private final JFrame mainFrame = new JFrame("Elden Rouge: CCPROG3 MCO Cosing & Tujan");
     private final JTextField characterNameField;
     private JLabel feedbackLabel;
-    private final JButton class1;
-    private final JButton class2;
-    private final JButton class3;
-    private final JButton class4;
-    private final JButton class5;
-    private final JButton class6;
+    private final JButton job1;
+    private final JButton job2;
+    private final JButton job3;
+    private final JButton job4;
+    private final JButton job5;
+    private final JButton job6;
     private final JButton backToTitle;
 
 
@@ -29,10 +29,10 @@ public class CharacterCreationView {
         characterNameField.setBounds(325,120, 150,30);
         characterNameField.setBorder(BorderFactory.createEtchedBorder());
 
-        JLabel selectAClass = new JLabel("Select a Class");
-        selectAClass.setForeground(Color.WHITE);
-        selectAClass.setBounds(340,130,200,100);
-        selectAClass.setFont(new Font("Garamond", Font.BOLD, 20));
+        JLabel selectAJob = new JLabel("Select a job");
+        selectAJob.setForeground(Color.WHITE);
+        selectAJob.setBounds(350,130,200,100);
+        selectAJob.setFont(new Font("Garamond", Font.BOLD, 20));
 
         JLabel vagabond = new JLabel("Vagabond");
         vagabond.setForeground(Color.WHITE);
@@ -274,41 +274,41 @@ public class CharacterCreationView {
         pFTH.setBounds(645,350,200,100);
         pFTH.setFont(new Font("Garamond", Font.BOLD, 20));
 
-        class1 = new JButton("1");
-        class1.setFocusPainted(false);
-        class1.setBounds(20,200,30,30);
-        class1.setFont(new Font("Garamond", Font.BOLD,30));
-        class1.setBorder(BorderFactory.createEtchedBorder());
+        job1 = new JButton("1");
+        job1.setFocusPainted(false);
+        job1.setBounds(20,200,30,30);
+        job1.setFont(new Font("Garamond", Font.BOLD,30));
+        job1.setBorder(BorderFactory.createEtchedBorder());
 
-        class2 = new JButton("2");
-        class2.setFocusPainted(false);
-        class2.setBounds(145,200,30,30);
-        class2.setFont(new Font("Garamond", Font.BOLD,30));
-        class2.setBorder(BorderFactory.createEtchedBorder());
+        job2 = new JButton("2");
+        job2.setFocusPainted(false);
+        job2.setBounds(145,200,30,30);
+        job2.setFont(new Font("Garamond", Font.BOLD,30));
+        job2.setBorder(BorderFactory.createEtchedBorder());
 
-        class3 = new JButton("3");
-        class3.setFocusPainted(false);
-        class3.setBounds(270,200,30,30);
-        class3.setFont(new Font("Garamond", Font.BOLD,30));
-        class3.setBorder(BorderFactory.createEtchedBorder());
+        job3 = new JButton("3");
+        job3.setFocusPainted(false);
+        job3.setBounds(270,200,30,30);
+        job3.setFont(new Font("Garamond", Font.BOLD,30));
+        job3.setBorder(BorderFactory.createEtchedBorder());
 
-        class4 = new JButton("4");
-        class4.setFocusPainted(false);
-        class4.setBounds(395,200,30,30);
-        class4.setFont(new Font("Garamond", Font.BOLD,30));
-        class4.setBorder(BorderFactory.createEtchedBorder());
+        job4 = new JButton("4");
+        job4.setFocusPainted(false);
+        job4.setBounds(395,200,30,30);
+        job4.setFont(new Font("Garamond", Font.BOLD,30));
+        job4.setBorder(BorderFactory.createEtchedBorder());
 
-        class5 = new JButton("5");
-        class5.setFocusPainted(false);
-        class5.setBounds(520,200,30,30);
-        class5.setFont(new Font("Garamond", Font.BOLD,30));
-        class5.setBorder(BorderFactory.createEtchedBorder());
+        job5 = new JButton("5");
+        job5.setFocusPainted(false);
+        job5.setBounds(520,200,30,30);
+        job5.setFont(new Font("Garamond", Font.BOLD,30));
+        job5.setBorder(BorderFactory.createEtchedBorder());
 
-        class6 = new JButton("6");
-        class6.setFocusPainted(false);
-        class6.setBounds(645,200,30,30);
-        class6.setFont(new Font("Garamond", Font.BOLD,30));
-        class6.setBorder(BorderFactory.createEtchedBorder());
+        job6 = new JButton("6");
+        job6.setFocusPainted(false);
+        job6.setBounds(645,200,30,30);
+        job6.setFont(new Font("Garamond", Font.BOLD,30));
+        job6.setBorder(BorderFactory.createEtchedBorder());
 
         backToTitle = new JButton("Return to Title");
         backToTitle.setFocusPainted(false);
@@ -334,7 +334,7 @@ public class CharacterCreationView {
         mainFrame.add(characterCreation);
         mainFrame.add(enterName);
         mainFrame.add(characterNameField);
-        mainFrame.add(selectAClass);
+        mainFrame.add(selectAJob);
         mainFrame.add(vagabond);
         mainFrame.add(vLevel);
         mainFrame.add(vHP);
@@ -383,12 +383,12 @@ public class CharacterCreationView {
         mainFrame.add(pEND);
         mainFrame.add(pSTR);
         mainFrame.add(pFTH);
-        mainFrame.add(class1);
-        mainFrame.add(class2);
-        mainFrame.add(class3);
-        mainFrame.add(class4);
-        mainFrame.add(class5);
-        mainFrame.add(class6);
+        mainFrame.add(job1);
+        mainFrame.add(job2);
+        mainFrame.add(job3);
+        mainFrame.add(job4);
+        mainFrame.add(job5);
+        mainFrame.add(job6);
         mainFrame.add(backToTitle);
         mainFrame.add(this.feedbackLabel);
 
@@ -398,28 +398,28 @@ public class CharacterCreationView {
     public void addCharacterNameFieldListener(ActionListener listener) {
         characterNameField.addActionListener(listener);
     }
-    public void addClass1Listener(ActionListener listener) {
-        class1.addActionListener(listener);
+    public void addJob1Listener(ActionListener listener) {
+        job1.addActionListener(listener);
     }
 
-    public void addClass2Listener(ActionListener listener) {
-        class2.addActionListener(listener);
+    public void addJob2Listener(ActionListener listener) {
+        job2.addActionListener(listener);
     }
 
-    public void addClass3Listener(ActionListener listener) {
-        class3.addActionListener(listener);
+    public void addJob3Listener(ActionListener listener) {
+        job3.addActionListener(listener);
     }
 
-    public void addClass4Listener(ActionListener listener) {
-        class4.addActionListener(listener);
+    public void addJob4Listener(ActionListener listener) {
+        job4.addActionListener(listener);
     }
 
-    public void addClass5Listener(ActionListener listener) {
-        class5.addActionListener(listener);
+    public void addJob5Listener(ActionListener listener) {
+        job5.addActionListener(listener);
     }
 
-    public void addClass6Listener(ActionListener listener) {
-        class6.addActionListener(listener);
+    public void addJob6Listener(ActionListener listener) {
+        job6.addActionListener(listener);
     }
 
     public void addBackToTitleListener(ActionListener listener) {
