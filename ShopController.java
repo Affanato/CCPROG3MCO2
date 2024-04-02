@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class ShopController {
@@ -14,7 +15,7 @@ public class ShopController {
 
     /*public void displayShopItems() {
         view.displayShopItems(model);
-    } */
+    }
 
 
     public void purchaseItem(int index) {
