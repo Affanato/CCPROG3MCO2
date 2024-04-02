@@ -1,12 +1,10 @@
 public class CharacterCreationModel {
-    private CharacterCreationController characterCreationController;
     public CharacterCreationModel(){
-        this.characterCreationController = new CharacterCreationController(this);
+        CharacterCreationController characterCreationController = new CharacterCreationController(this);
     }
 
-    public Character createCharacter (String name, int jobIndex){
-        Character character = new Character(name, jobIndex);
-        return character;
+    public void createCharacter (String name, int jobIndex){
+        GameLobbyModel gameLobbyModel = new GameLobbyModel(new Character(name, jobIndex));
     }
 
 
