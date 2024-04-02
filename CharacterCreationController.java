@@ -6,14 +6,12 @@ public class CharacterCreationController {
     private String selectedName;
     private int selectedClassIndex;
     private CharacterCreationView characterCreationView;
-    private CharacterCreationModel characterCreationModel;
 
     public CharacterCreationController(CharacterCreationModel characterCreationModel) {
         this.characterCreationView = new CharacterCreationView();
         characterCreationView.addCharacterNameFieldListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                selectedName = characterCreationView.getEnteredName();
-
             }
         });
         characterCreationView.addJob1Listener(new ActionListener() {
