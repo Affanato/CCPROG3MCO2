@@ -36,7 +36,8 @@ public class Character {
 
         areas.add(new Area(0));
         areas.add(new Area(1));
-        // to add other areas when they're okay
+        areas.add(new Area(2));
+        areas.add(new Area(3));
 
         this.level = job.getBaseLevel();
         this.hp = job.getBaseHp();
@@ -154,7 +155,6 @@ public class Character {
         } else if (movement == 'd' || movement == 'D') {
             movementType = 4; // Moving Right
         } else {
-            System.out.println("Please enter a valid input to move (WASD).\n");
             return;
         }
 
@@ -224,20 +224,25 @@ public class Character {
                 || (areas.get(currentAreaIndex).getFloors().get(currentFloorNumber).getTiles().get(currentTileIndex)
                 .getTileType() == Tile.TileType.FastTravelTile);
 
-        if (!canFastTravel) {
-            System.out.println("Cannot fast travel from this location.\n");
-            return;
-        }
-
         // Reset HP and spawn tiles when returning to the Game Lobby (Area 0)
         if (destinationAreaIndex == 0) {
             currentAreaIndex = destinationAreaIndex;
-            if (!(equiped == null)) {
-                currentHp = 100 * ((hp + equiped.getHp()) / 2);
-            } else {
-                currentHp = 100 * (((hp) / 2));
-            }
-            System.out.println("Fast traveled to game lobby.\n");
+            currentHp = 100 * ((hp + equiped.getHp()) / 2);
+
+            //Reset all spawn tiles
+            areas.get(1).getFloors().get(0).getTiles().get(3).turnOn();
+            areas.get(1).getFloors().get(0).getTiles().get(5).turnOn();
+            areas.get(1).getFloors().get(1).getTiles().get(10).turnOn();
+            areas.get(1).getFloors().get(1).getTiles().get(21).turnOn();
+            areas.get(1).getFloors().get(1).getTiles().get(23).turnOn();
+            areas.get(1).getFloors().get(1).getTiles().get(24).turnOn();
+            areas.get(1).getFloors().get(1).getTiles().get(25).turnOn();
+            areas.get(1).getFloors().get(1).getTiles().get(27).turnOn();
+            areas.get(1).getFloors().get(1).getTiles().get(37).turnOn();
+            areas.get(1).getFloors().get(1).getTiles().get(39).turnOn();
+
+
+
         } else if ((destinationAreaIndex == 1) && (fastTravelTileIndex == 1)) {
             if (areas.get(1).getFloors().get(0).getTiles().get(19).getIsActive()) { // get(1) area 1, get(0) floor 1,
                 // get(19) tile index19
@@ -259,9 +264,6 @@ public class Character {
             } else {
                 System.out.println("This fast travel point is not yet activated.\n");
             }
-        } else {
-            System.out.println(
-                    "Please enter valid inputs for the fast travel points. Note: areas 2 and 3 are not yet available.\n");
         }
     }
 

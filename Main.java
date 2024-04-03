@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        TitleScreenModel titleScreenModel = new TitleScreenModel();
+        CreditsModel creditsModel = new CreditsModel();
+        //TitleScreenModel titleScreenModel = new TitleScreenModel();
     }
 }

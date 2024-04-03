@@ -1,7 +1,6 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class ChangeNameController {
-
     private String selectedName;
     private final ChangeNameView changeNameView;
     ChangeNameController(Character character, ChangeNameModel changeNameModel) {
