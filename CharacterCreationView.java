@@ -12,7 +12,6 @@ public class CharacterCreationView {
     private final JButton job5;
     private final JButton job6;
     private final JButton backToTitle;
-
     public CharacterCreationView() {
         JLabel characterCreation = new JLabel("Character Creation");
         characterCreation.setForeground(Color.ORANGE);

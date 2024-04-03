@@ -4,7 +4,7 @@ public class GameLobbyModel {
     }
 
     public void goToChangeName(Character character) {
-        //ChangeNameModel changeNameModel = new changeNameModel(character);
+        ChangeNameModel changeNameModel = new ChangeNameModel(character);
     }
 
     public void goToLevelUp(Character character) {

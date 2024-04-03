@@ -69,12 +69,7 @@ public class Character {
      * @param name The new name of the character.
      */
     public void changeName(String name) {
-        if (name.isEmpty()) {
-            System.out.println("Name must be at least 1 character long\n");
-        } else {
-            this.name = name.length() > 25 ? name.substring(0, 25) : name;
-            System.out.println("Your new name is " + name + "!");
-        }
+        this.name = name.length() > 25 ? name.substring(0, 25) : name;
     }
 
     /**
