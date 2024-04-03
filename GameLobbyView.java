@@ -98,7 +98,7 @@ public class GameLobbyView {
 
         JLabel weaponName = new JLabel("Weapon: " + character.getEquiped().getName());
         weaponName.setForeground(Color.WHITE);
-        weaponName.setBounds(20,260,200,100);
+        weaponName.setBounds(20,260,500,100);
         weaponName.setFont(new Font("Garamond", Font.BOLD, 20));
 
         JLabel weaponHP = new JLabel("Weapon HP: " + character.getEquiped().getHp());

@@ -12,7 +12,7 @@ public class GameLobbyModel {
     }
 
     public void goToEquipWeapon(Character character) {
-        //EquipWeaponModel equipWeaponModel = new EquipWeaponModel(character);
+        EquipWeaponModel equipWeaponModel = new EquipWeaponModel(character);
     }
 
     public void goToShop(Character character) {

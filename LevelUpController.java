@@ -72,6 +72,5 @@ public class LevelUpController {
                 levelUpModel.backToGameLobby(character);
             }
         });
-
     }
 }

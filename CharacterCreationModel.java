@@ -7,5 +7,4 @@ public class CharacterCreationModel {
         GameLobbyModel gameLobbyModel = new GameLobbyModel(new Character(name, jobIndex));
     }
 
-
 }

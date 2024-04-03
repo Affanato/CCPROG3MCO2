@@ -26,7 +26,6 @@ public class Character {
     private boolean selectedDodge;
     private boolean isBattling = false;
     private Scanner scanner = new Scanner(System.in);
-
     public Character(String name, int jobInt) {
         Job job = new Job(jobInt);
         this.name = name.length() > 25 ? name.substring(0, 25) : name;
@@ -34,6 +33,21 @@ public class Character {
         this.runes = 5000000;
         this.equiped = new Weapon(0,0);
         this.inventory.add(new Weapon(0,0));
+        this.inventory.add(new Weapon(1,1));
+        this.inventory.add(new Weapon(1,2));
+        this.inventory.add(new Weapon(1,3));
+        this.inventory.add(new Weapon(1,4));
+        this.inventory.add(new Weapon(2,1));
+        this.inventory.add(new Weapon(2,2));
+        this.inventory.add(new Weapon(2,3));
+        this.inventory.add(new Weapon(2,4));
+        this.inventory.add(new Weapon(3,1));
+        this.inventory.add(new Weapon(3,2));
+        this.inventory.add(new Weapon(3,3));
+        this.inventory.add(new Weapon(3,4));
+        this.inventory.add(new Weapon(4,1));
+        this.inventory.add(new Weapon(4,2));
+        this.inventory.add(new Weapon(4,3));
 
         areas.add(new Area(0));
         areas.add(new Area(1));
@@ -225,18 +239,8 @@ public class Character {
      * @param index The index of the weapon to equip.
      */
     public void equipWeapon(int index) {
-        if (inventory.isEmpty()) {
-            System.out.println("You do not have any items to equip.\n");
-        } else if (!(0 <= index && index <= inventory.size() - 1)) {
-            System.out.println("Please enter a valid weapon index.\n");
-        } else if (inventory.get(index).getDexReq() > this.dex) {
-            System.out.println("Cannot equip " + inventory.get(index).getName() + ". You need at least "
-                    + inventory.get(index).getDexReq() + " dex.");
-        } else {
-            System.out.println("Sucessfully equiped " + inventory.get(index).getName());
-            this.equiped = inventory.get(index);
-            this.currentHp = 100 * ((this.equiped.getHp() + this.hp) / 2);
-        }
+        this.equiped = inventory.get(index);
+        this.currentHp = 100 * ((this.equiped.getHp() + this.hp) / 2);
     }
 
     /**
