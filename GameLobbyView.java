@@ -215,7 +215,7 @@ public class GameLobbyView {
     public void addChangeWeaponButtonActionListener(ActionListener listener){
         changeWeaponButton.addActionListener(listener);
     }
-    public void addBuyShopButtonActionListener(Action listener) {
+    public void addBuyShopButtonActionListener(ActionListener listener) {
         buyShopButton.addActionListener(listener);
     }
     public void addFastTravelButtonActionListener(ActionListener listener){
