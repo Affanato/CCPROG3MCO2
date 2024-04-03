@@ -30,24 +30,9 @@ public class Character {
         Job job = new Job(jobInt);
         this.name = name.length() > 25 ? name.substring(0, 25) : name;
         this.job = job;
-        this.runes = 5000000;
+        this.runes = 0;
         this.equiped = new Weapon(0,0);
         this.inventory.add(new Weapon(0,0));
-        this.inventory.add(new Weapon(1,1));
-        this.inventory.add(new Weapon(1,2));
-        this.inventory.add(new Weapon(1,3));
-        this.inventory.add(new Weapon(1,4));
-        this.inventory.add(new Weapon(2,1));
-        this.inventory.add(new Weapon(2,2));
-        this.inventory.add(new Weapon(2,3));
-        this.inventory.add(new Weapon(2,4));
-        this.inventory.add(new Weapon(3,1));
-        this.inventory.add(new Weapon(3,2));
-        this.inventory.add(new Weapon(3,3));
-        this.inventory.add(new Weapon(3,4));
-        this.inventory.add(new Weapon(4,1));
-        this.inventory.add(new Weapon(4,2));
-        this.inventory.add(new Weapon(4,3));
 
         areas.add(new Area(0));
         areas.add(new Area(1));
@@ -93,144 +78,8 @@ public class Character {
      * @param index The index of the item in the shop.
      */
     public void buyFromShop(Shop shop, int index) {
-
-        if (shop.isEmpty()) {
-            System.out.println("There are no more items to buy in the shop anymore.\n");
-        } else if (0 <= index && index <= shop.getArrayListSize() - 1) {
-            if (this.runes >= shop.getItemCost(index)) {
-                System.out.println("Successfully purchased " + shop.getItemName(index) + " for "
-                        + shop.getItemCost(index) + " runes!");
-                inventory.add(shop.getWeapon(index));
-                System.out.println(shop.getItemName(index) + " has been added to your inventory.");
-                this.runes -= shop.getItemCost(index);
-                System.out.println("You now only have " + this.runes + " runes.\n");
-                shop.removeFromInventory(index);
-            } else {
-                System.out.println("You do not have enough runes to buy " + shop.getItemName(index) + ".\n");
-            }
-        } else {
-            System.out.println("Please enter a valid index.\n");
-        }
-    }
-
-    /**
-     * Displays the character's inventory.
-     */
-    public void displayInventory() {
-        if (inventory.isEmpty()) {
-            System.out.println("Your inventory is empty.\n");
-        } else {
-            System.out.println(this.name + "'s inventory");
-            for (int i = 0; i < inventory.size(); i += 3) {
-                // check if there is a next element
-                System.out.print("_____________________________________________");
-                if (i + 2 < inventory.size()) {
-                    System.out.print("____________________________________________");
-                    System.out.print("__________________________________________\n");
-                } else if (i + 1 < inventory.size()) {
-                    System.out.print("___________________________________________\n");
-                    ;
-                } else {
-                    System.out.println();
-                }
-
-                System.out.printf("|| Index        : %-20d     ||", i);
-                if (i + 2 < inventory.size()) {
-                    System.out.printf(" Index        : %-20d     ||", i + 1);
-                    System.out.printf(" Index        : %-20d     ||%n", i + 2);
-                } else if (i + 1 < inventory.size()) {
-                    System.out.printf(" Index        : %-20d     ||%n", i + 1);
-                } else {
-                    System.out.println();
-                }
-
-                System.out.printf("|| Name         : %-25s||", inventory.get(i).getName());
-                if (i + 2 < inventory.size()) {
-                    System.out.printf(" Name         : %-25s||", inventory.get(i + 1).getName());
-                    System.out.printf(" Name         : %-25s||%n", inventory.get(i + 2).getName());
-                } else if (i + 1 < inventory.size()) {
-                    System.out.printf(" Name         : %-25s||%n", inventory.get(i + 1).getName());
-                } else {
-                    System.out.println();
-                }
-
-                System.out.printf("|| Required DEX : %-2d                       ||", inventory.get(i).getDexReq());
-                if (i + 2 < inventory.size()) {
-                    System.out.printf(" Required DEX : %-2d                       ||",
-                            inventory.get(i + 1).getDexReq());
-                    System.out.printf(" Required DEX : %-2d                       ||%n",
-                            inventory.get(i + 2).getDexReq());
-                } else if (i + 1 < inventory.size()) {
-                    System.out.printf(" Required DEX : %-2d                       ||%n",
-                            inventory.get(i + 1).getDexReq());
-                } else {
-                    System.out.println();
-                }
-
-                System.out.printf("|| Weapon HP    : %-2d                       ||", inventory.get(i).getHp());
-                if (i + 2 < inventory.size()) {
-                    System.out.printf(" Weapon HP    : %-2d                       ||", inventory.get(i + 1).getHp());
-                    System.out.printf(" Weapon HP    : %-2d                       ||%n", inventory.get(i + 2).getHp());
-                } else if (i + 1 < inventory.size()) {
-                    System.out.printf(" Weapon HP    : %-2d                       ||%n", inventory.get(i + 1).getHp());
-                } else {
-                    System.out.println();
-                }
-
-                System.out.printf("|| Weapon INT   : %-2d                       ||", inventory.get(i).getInte());
-                if (i + 2 < inventory.size()) {
-                    System.out.printf(" Weapon INT   : %-2d                       ||", inventory.get(i + 1).getInte());
-                    System.out.printf(" Weapon INT   : %-2d                       ||%n",
-                            inventory.get(i + 2).getInte());
-                } else if (i + 1 < inventory.size()) {
-                    System.out.printf(" Weapon INT   : %-2d                       ||%n",
-                            inventory.get(i + 1).getInte());
-                } else {
-                    System.out.println();
-                }
-
-                System.out.printf("|| Weapon END   : %-2d                       ||", inventory.get(i).getEnd());
-                if (i + 2 < inventory.size()) {
-                    System.out.printf(" Weapon END   : %-2d                       ||", inventory.get(i + 1).getEnd());
-                    System.out.printf(" Weapon END   : %-2d                       ||%n", inventory.get(i + 2).getEnd());
-                } else if (i + 1 < inventory.size()) {
-                    System.out.printf(" Weapon END   : %-2d                       ||%n", inventory.get(i + 1).getEnd());
-                } else {
-                    System.out.println();
-                }
-
-                System.out.printf("|| Weapon STR   : %-2d                       ||", inventory.get(i).getStr());
-                if (i + 2 < inventory.size()) {
-                    System.out.printf(" Weapon STR   : %-2d                       ||", inventory.get(i + 1).getStr());
-                    System.out.printf(" Weapon STR   : %-2d                       ||%n", inventory.get(i + 2).getStr());
-                } else if (i + 1 < inventory.size()) {
-                    System.out.printf(" Weapon STR   : %-2d                       ||%n", inventory.get(i + 1).getStr());
-                } else {
-                    System.out.println();
-                }
-
-                System.out.printf("|| Weapon FTH   : %-2d                       ||", inventory.get(i).getFth());
-                if (i + 2 < inventory.size()) {
-                    System.out.printf(" Weapon FTH   : %-2d                       ||", inventory.get(i + 1).getFth());
-                    System.out.printf(" Weapon FTH   : %-2d                       ||%n", inventory.get(i + 2).getFth());
-                } else if (i + 1 < inventory.size()) {
-                    System.out.printf(" Weapon FTH   : %-2d                       ||%n", inventory.get(i + 1).getFth());
-                } else {
-                    System.out.println();
-                }
-
-                System.out.print("_____________________________________________");
-                if (i + 2 < inventory.size()) {
-                    System.out.print("____________________________________________");
-                    System.out.print("__________________________________________\n");
-                } else if (i + 1 < inventory.size()) {
-                    System.out.print("___________________________________________\n");
-                } else {
-                    System.out.println();
-                }
-            }
-            System.out.println();
-        }
+        inventory.add(shop.getWeapon(index));
+        this.runes -= shop.getItemCost(index);
     }
 
     /**

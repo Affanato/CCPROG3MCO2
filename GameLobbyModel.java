@@ -16,7 +16,7 @@ public class GameLobbyModel {
     }
 
     public void goToShop(Character character) {
-        //ShopModel1 shopeModel1 = new ShopModel1();
+        ShopModel1 shopModel1 = new ShopModel1(character);
     }
 
     public void goToFastTravel(Character character) {
