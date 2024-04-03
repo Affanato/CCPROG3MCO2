@@ -12,7 +12,7 @@ public class GameLobbyView {
 
     public GameLobbyView(Character character) {
         JLabel gameLobby = new JLabel("Game Lobby");
-        gameLobby.setForeground(Color.YELLOW);
+        gameLobby.setForeground(Color.ORANGE);
         gameLobby.setBounds(10,0,300,100);
         gameLobby.setFont(new Font("Garamond", Font.BOLD, 40));
 

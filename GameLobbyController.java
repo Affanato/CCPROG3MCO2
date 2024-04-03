@@ -2,7 +2,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class GameLobbyController {
-    private GameLobbyView gameLobbyView;
+    private final GameLobbyView gameLobbyView;
     public GameLobbyController(GameLobbyModel gameLobbyModel, Character character) {
         this.gameLobbyView = new GameLobbyView(character);
 

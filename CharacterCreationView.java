@@ -315,7 +315,6 @@ public class CharacterCreationView {
         backToTitle.setBorder(BorderFactory.createEtchedBorder());
 
         this.feedbackLabel = new JLabel();
-        this.feedbackLabel.setPreferredSize(new Dimension(220, 30));
         this.feedbackLabel.setForeground(Color.RED);
         this.feedbackLabel.setBounds(320,380,200,100);
         this.feedbackLabel.setFont(new Font("Garamond", Font.BOLD, 20));

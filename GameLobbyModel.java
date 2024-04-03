@@ -8,7 +8,7 @@ public class GameLobbyModel {
     }
 
     public void goToLevelUp(Character character) {
-        //LevelUpModel levelUpModel = new LevelUpModel(character);
+        LevelUpModel levelUpModel = new LevelUpModel(character);
     }
 
     public void goToEquipWeapon(Character character) {

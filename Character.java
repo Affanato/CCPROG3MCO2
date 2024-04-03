@@ -31,7 +31,7 @@ public class Character {
         Job job = new Job(jobInt);
         this.name = name.length() > 25 ? name.substring(0, 25) : name;
         this.job = job;
-        this.runes = 0;
+        this.runes = 5000000;
         this.equiped = new Weapon(0,0);
         this.inventory.add(new Weapon(0,0));
 
@@ -252,45 +252,34 @@ public class Character {
                 case 1:
                     this.hp += 1;
                     this.level += 1;
-                    System.out.println(this.name + " leved up to level " + this.level + "!");
-                    System.out.println("HP grew to " + this.hp + ".\n");
+                    this.runes = this.runes - levelCost;
                     break;
                 case 2:
                     this.dex += 1;
                     this.level += 1;
-                    System.out.println(this.name + " leved up to level " + this.level + "!");
-                    System.out.println("DEX grew to " + this.dex + ".\n");
+                    this.runes = this.runes - levelCost;
                     break;
                 case 3:
                     this.inte += 1;
                     this.level += 1;
-                    System.out.println(this.name + " leved up to level " + this.level + "!");
-                    System.out.println("INT grew to " + this.inte + ".\n");
+                    this.runes = this.runes - levelCost;
                     break;
                 case 4:
                     this.end += 1;
                     this.level += 1;
-                    System.out.println(this.name + " leved up to level " + this.level + "!");
-                    System.out.println("END grew to " + this.end + ".\n");
+                    this.runes = this.runes - levelCost;
                     break;
                 case 5:
                     this.str += 1;
                     this.level += 1;
-                    System.out.println(this.name + " leved up to level " + this.level + "!");
-                    System.out.println("STR grew to " + this.str + ".\n");
+                    this.runes = this.runes - levelCost;
                     break;
                 case 6:
                     this.fth += 1;
                     this.level += 1;
-                    System.out.println(this.name + " leved up to level " + this.level + "!");
-                    System.out.println("FTH grew to " + this.fth + ".\n");
+                    this.runes = this.runes - levelCost;
                     break;
-                default:
-                    System.out.println("Please input a valid number from 1-5.\n");
             }
-        } else {
-            System.out.println("You do not have enough runes to level up.");
-            System.out.println("You need at least " + levelCost + " runes for the next level.\n");
         }
     }
 
@@ -829,6 +818,10 @@ public class Character {
      */
     public int getFth() {
         return fth;
+    }
+
+    public int getLevelReq(){
+        return (this.level * 100) / 2;
     }
 
 

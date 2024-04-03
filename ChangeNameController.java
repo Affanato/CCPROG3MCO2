@@ -3,7 +3,7 @@ import java.awt.event.ActionListener;
 public class ChangeNameController {
 
     private String selectedName;
-    private ChangeNameView changeNameView;
+    private final ChangeNameView changeNameView;
     ChangeNameController(Character character, ChangeNameModel changeNameModel) {
         this.changeNameView = new ChangeNameView();
         changeNameView.addCharacterNameFieldListener(new ActionListener() {
@@ -25,6 +25,7 @@ public class ChangeNameController {
 
         changeNameView.addReturnToGameLobbyListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                changeNameView.disposeFrame();
                 changeNameModel.goBackGameLobby(character);
             }
         });
