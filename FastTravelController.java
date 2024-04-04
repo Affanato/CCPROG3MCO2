@@ -3,5 +3,7 @@ public class FastTravelController {
 
     public FastTravelController(FastTravelModel fastTravelModel, Character character) {
         this.fastTravelView = new FastTravelView(character);
+
+
     }
 }

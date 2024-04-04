@@ -200,6 +200,7 @@ public class Floor {
                             tiles.add(new Tile(Tile.TileType.FastTravelTile));
                             tiles.add(new Tile(Tile.TileType.RegularTile));
                             tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.get(2).turnOn(); // makes sure the tile is teleportable
 
                             //row 2
                             tiles.add(new Tile(Tile.TileType.RegularTile));

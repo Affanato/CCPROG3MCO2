@@ -20,7 +20,7 @@ public class GameLobbyModel {
     }
 
     public void goToFastTravel(Character character) {
-        //FasTravelModel fastTravelModel = new FastTravelModel();
+        FastTravelModel fastTravelModel = new FastTravelModel(character);
     }
 
     public void goToTitle() {
