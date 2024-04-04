@@ -229,7 +229,7 @@ public class Character {
             currentAreaIndex = destinationAreaIndex;
             currentHp = 100 * ((hp + equiped.getHp()) / 2);
 
-            //Reset all spawn tiles
+            //Reset all Area 1 Spawn Tiles
             areas.get(1).getFloors().get(0).getTiles().get(3).turnOn();
             areas.get(1).getFloors().get(0).getTiles().get(5).turnOn();
             areas.get(1).getFloors().get(1).getTiles().get(10).turnOn();
@@ -241,29 +241,57 @@ public class Character {
             areas.get(1).getFloors().get(1).getTiles().get(37).turnOn();
             areas.get(1).getFloors().get(1).getTiles().get(39).turnOn();
 
+            //Reset all Area 2 Spawn Tiles
+            areas.get(2).getFloors().get(0).getTiles().get(16).turnOn();
+            areas.get(2).getFloors().get(0).getTiles().get(18).turnOn();
+            areas.get(2).getFloors().get(1).getTiles().get(3).turnOn();
+            areas.get(2).getFloors().get(1).getTiles().get(9).turnOn();
+            areas.get(2).getFloors().get(1).getTiles().get(15).turnOn();
+            areas.get(2).getFloors().get(2).getTiles().get(7).turnOn();
+            areas.get(2).getFloors().get(2).getTiles().get(27).turnOn();
+            areas.get(2).getFloors().get(3).getTiles().get(2).turnOn();
+            areas.get(2).getFloors().get(3).getTiles().get(4).turnOn();
+            areas.get(2).getFloors().get(3).getTiles().get(14).turnOn();
+            areas.get(2).getFloors().get(3).getTiles().get(16).turnOn();
+            areas.get(2).getFloors().get(4).getTiles().get(16).turnOn();
+            areas.get(2).getFloors().get(4).getTiles().get(18).turnOn();
+            areas.get(2).getFloors().get(4).getTiles().get(20).turnOn();
+            areas.get(2).getFloors().get(4).getTiles().get(30).turnOn();
+            areas.get(2).getFloors().get(4).getTiles().get(34).turnOn();
+            areas.get(2).getFloors().get(4).getTiles().get(44).turnOn();
+            areas.get(2).getFloors().get(4).getTiles().get(48).turnOn();
 
+            //Reset all Area 3 Spawn Tiles
+            areas.get(3).getFloors().get(0).getTiles().get(13).turnOn();
+            areas.get(3).getFloors().get(2).getTiles().get(3).turnOn();
+            areas.get(3).getFloors().get(2).getTiles().get(5).turnOn();
+            areas.get(3).getFloors().get(2).getTiles().get(9).turnOn();
+            areas.get(3).getFloors().get(2).getTiles().get(11).turnOn();
+            areas.get(3).getFloors().get(2).getTiles().get(15).turnOn();
+            areas.get(3).getFloors().get(2).getTiles().get(17).turnOn();
+            areas.get(3).getFloors().get(2).getTiles().get(21).turnOn();
+            areas.get(3).getFloors().get(2).getTiles().get(23).turnOn();
 
         } else if ((destinationAreaIndex == 1) && (fastTravelTileIndex == 1)) {
-            if (areas.get(1).getFloors().get(0).getTiles().get(19).getIsActive()) { // get(1) area 1, get(0) floor 1,
-                // get(19) tile index19
-                currentAreaIndex = destinationAreaIndex;
-                currentFloorNumber = 0;
-                currentTileIndex = 19;
-                System.out.println("Fast traveled to Stormveil Castle fast travel point 1.\n");
-                displayCurrentLocation();
-            } else {
-                System.out.println("This fast travel point is not yet activated.\n");
-            }
+            currentAreaIndex = destinationAreaIndex;
+            currentFloorNumber = 0;
+            currentTileIndex = 19;
         } else if ((destinationAreaIndex == 1) && (fastTravelTileIndex == 2)) {
-            if (areas.get(1).getFloors().get(2).getTiles().get(2).getIsActive()) {
-                currentAreaIndex = destinationAreaIndex;
-                currentFloorNumber = 2;
-                currentTileIndex = 2;
-                System.out.println("Fast traveled to Stormveil Castle fast travel point 2.\n");
-                displayCurrentLocation();
-            } else {
-                System.out.println("This fast travel point is not yet activated.\n");
-            }
+            currentAreaIndex = destinationAreaIndex;
+            currentFloorNumber = 2;
+            currentTileIndex = 2;
+        } else if ((destinationAreaIndex == 2) && (fastTravelTileIndex == 1)) {
+            currentAreaIndex = destinationAreaIndex;
+            currentFloorNumber = 0;
+            currentTileIndex = 2;
+        } else if ((destinationAreaIndex == 2) && (fastTravelTileIndex == 2)) {
+            currentAreaIndex = destinationAreaIndex;
+            currentFloorNumber = 4;
+            currentTileIndex = 3;
+        } else if ((destinationAreaIndex == 3) && (fastTravelTileIndex == 1)) {
+            currentAreaIndex = destinationAreaIndex;
+            currentFloorNumber = 0;
+            currentTileIndex = 25;
         }
     }
 

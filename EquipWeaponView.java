@@ -326,11 +326,9 @@ public class EquipWeaponView {
     public void addExitButtonActionListener(ActionListener listener) {
         exitButton.addActionListener(listener);
     }
-
     public void setFeedbackLabel(String text) {
         feedbackLabel.setText(text);
     }
-
     public void disposeFrame () {
         this.mainFrame.dispose();
     }
