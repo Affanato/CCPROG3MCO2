@@ -25,8 +25,8 @@ public class Character {
     private int currentHp;
     private boolean selectedDodge;
     private boolean isBattling = false;
-    private boolean boss1Down = true;
-    private boolean boss2Down = true;
+    private boolean boss1Down = false;
+    private boolean boss2Down = false;
     private Scanner scanner = new Scanner(System.in);
     public Character(String name, int jobInt) {
         Job job = new Job(jobInt);
