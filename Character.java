@@ -401,7 +401,6 @@ public class Character {
                 }
                 enemy.dropRunes(this);
                 enemy.die();
-                displayCurrentLocation();
             }
         } else {
             System.out.println(enemy.getName() + " has already fallen.\n");
