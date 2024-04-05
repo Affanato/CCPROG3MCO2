@@ -52,4 +52,8 @@ public class Area {
     public ArrayList<Floor> getFloors() {
         return floors;
     }
+
+    public String getName(){
+        return name;
+    }
 }

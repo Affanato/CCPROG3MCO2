@@ -722,6 +722,10 @@ public class Floor {
         }
     }
 
+    public int getHeight(){
+        return height;
+    }
+
     /**
      * Retrieves the width of the floor.
      *

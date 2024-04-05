@@ -735,6 +735,9 @@ public class Character {
     public int getCurrentTileIndex() {
         return currentTileIndex;
     }
+    public int getCurrentFloorNumber(){
+        return currentFloorNumber;
+    }
 
     /**
      * Gets the index of the current area.
