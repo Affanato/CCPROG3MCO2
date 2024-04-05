@@ -486,6 +486,16 @@ public class Character {
                 if (enemy.isBoss()) {
                     areas.get(this.currentAreaIndex).getFloors().get(this.currentFloorNumber).getTiles().get(this.currentTileIndex).turnOff();
                     System.out.println("GREAT ENEMY FELLED!");
+                    if (currentAreaIndex == 1) {
+                        areas.get(1).getFloors().get(this.currentFloorNumber).getTiles()
+                                .get(2).turnOn();
+                    } else if (currentAreaIndex == 2){
+                        areas.get(this.currentAreaIndex).getFloors().get(this.currentFloorNumber).getTiles()
+                                .get(3).turnOn();
+                    } else if (currentAreaIndex == 3){
+                        areas.get(this.currentAreaIndex).getFloors().get(this.currentFloorNumber).getTiles()
+                                .get(3).turnOff();
+                    }
                 } else {
                     areas.get(this.currentAreaIndex).getFloors().get(this.currentFloorNumber).getTiles().get(this.currentTileIndex).turnOff();
                     System.out.println("ENEMY FELLED!");
