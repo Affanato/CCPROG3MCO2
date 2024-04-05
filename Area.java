@@ -30,15 +30,17 @@ public class Area {
                     break;
                 case 2:
                     this.name = "Raya Lucaria Academy";
-                    // To implement floor generator
+                    for (int i = 0; i < 5; i++) {
+                        floors.add(new Floor(index, 1 + i));
+                    }
                     break;
                 case 3:
                     this.name = "The Elden Throne";
-                    // To implement floor generator
+                    for (int i = 0; i < 3; i++) {
+                        floors.add(new Floor(index, 1 + i));
+                    }
                     break;
             }
-        } else {
-            System.out.println("Not a valid area index.\n");
         }
     }
 
@@ -49,5 +51,9 @@ public class Area {
      */
     public ArrayList<Floor> getFloors() {
         return floors;
+    }
+
+    public String getName(){
+        return name;
     }
 }

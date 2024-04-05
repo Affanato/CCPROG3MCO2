@@ -187,15 +187,416 @@ public class Floor {
                             tiles.add(new Tile(Tile.TileType.RegularTile));
                             tiles.add(new Tile(Tile.TileType.RegularTile));
                             break;
+                    } break;
+                case 2:
+                    switch (floorNumber) {
+                        case 1:
+                            this.height = 5;
+                            this.width = 5;
+
+                            //row 1
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.FastTravelTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.get(2).turnOn(); // makes sure the tile is teleportable
+
+                            //row 2
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 3
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 4
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 5
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.DoorTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            break;
+                        case 2:
+                            this.height = 7;
+                            this.width = 3;
+
+                            //row 1
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.DoorTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 2
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 3
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 4
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.DoorTile));
+
+                            //row  5
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 6
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 7
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            break;
+                        case 3:
+                            this.height = 7;
+                            this.width = 5;
+
+                            //row 1
+                            tiles.add(new Tile(Tile.TileType.OutOfBounds));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.DoorTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.OutOfBounds));
+
+                            //row 2
+                            tiles.add(new Tile(Tile.TileType.OutOfBounds));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.OutOfBounds));
+
+                            //row 3
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 4
+                            tiles.add(new Tile(Tile.TileType.DoorTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.DoorTile));
+
+                            //row 5
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 6
+                            tiles.add(new Tile(Tile.TileType.OutOfBounds));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.OutOfBounds));
+
+                            //row 7
+                            tiles.add(new Tile(Tile.TileType.OutOfBounds));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.OutOfBounds));
+                            break;
+                        case 4:
+                            this.height = 3;
+                            this.width = 6;
+
+                            //row 1
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 2
+                            tiles.add(new Tile(Tile.TileType.DoorTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 3
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            break;
+                        case 5:
+                            this.height = 8;
+                            this.width = 7;
+
+                            //row 1
+                            tiles.add(new Tile(Tile.TileType.OutOfBounds));
+                            tiles.add(new Tile(Tile.TileType.OutOfBounds));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.FastTravelTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.OutOfBounds));
+                            tiles.add(new Tile(Tile.TileType.OutOfBounds));
+
+                            //row 2
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 3
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 4
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 5
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.BossTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 6
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 7
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 8
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.DoorTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            break;
+                    } break;
+                case 3:
+                    switch(floorNumber) {
+                        case 1:
+                            this.height = 9;
+                            this.width = 8;
+
+                            //row 1
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.DoorTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 2
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 3
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 4
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 5
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 6
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 7
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 8
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 9
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.FastTravelTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            break;
+                        case 2:
+                            this.height = 7;
+                            this.width = 7;
+
+                            //row 1
+                            tiles.add(new Tile(Tile.TileType.OutOfBounds));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.DoorTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.OutOfBounds));
+
+                            //row 2
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 3
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 4
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.BossTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 5
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 6
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 7
+                            tiles.add(new Tile(Tile.TileType.OutOfBounds));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.DoorTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.OutOfBounds));
+                            break;
+                        case 3:
+                            this.height = 9;
+                            this.width = 3;
+
+                            //row 1
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.CreditsTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 2
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+
+                            //row 3
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 4
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+
+                            //row 5
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 6
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+
+                            //row 7
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            //row 8
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.SpawnTile));
+
+                            //row 9
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            tiles.add(new Tile(Tile.TileType.DoorTile));
+                            tiles.add(new Tile(Tile.TileType.RegularTile));
+                            break;
                     }
                     break;
-                // case 2: to place the rest of the areas here when possible
-                default:
-                    System.out.println("Areas 2 and 3 to be implemented next time!\n");
-                    break;
             }
-        } else {
-            System.out.println("Invalid floor and area combination.\n");
         }
     }
 
@@ -318,6 +719,10 @@ public class Floor {
             }
             System.out.println(); // Move to the next line after printing a row
         }
+    }
+
+    public int getHeight(){
+        return height;
     }
 
     /**

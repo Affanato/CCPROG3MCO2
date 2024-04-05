@@ -26,16 +26,18 @@ public class Character {
     private boolean selectedDodge;
     private boolean isBattling = false;
     private Scanner scanner = new Scanner(System.in);
-
     public Character(String name, int jobInt) {
         Job job = new Job(jobInt);
         this.name = name.length() > 25 ? name.substring(0, 25) : name;
         this.job = job;
         this.runes = 0;
+        this.equiped = new Weapon(0,0);
+        this.inventory.add(new Weapon(0,0));
 
         areas.add(new Area(0));
         areas.add(new Area(1));
-        // to add other areas when they're okay
+        areas.add(new Area(2));
+        areas.add(new Area(3));
 
         this.level = job.getBaseLevel();
         this.hp = job.getBaseHp();
@@ -67,12 +69,7 @@ public class Character {
      * @param name The new name of the character.
      */
     public void changeName(String name) {
-        if (name.isEmpty()) {
-            System.out.println("Name must be at least 1 character long\n");
-        } else {
-            this.name = name.length() > 25 ? name.substring(0, 25) : name;
-            System.out.println("Your new name is " + name + "!");
-        }
+        this.name = name.length() > 25 ? name.substring(0, 25) : name;
     }
 
     /**
@@ -82,144 +79,8 @@ public class Character {
      * @param index The index of the item in the shop.
      */
     public void buyFromShop(Shop shop, int index) {
-
-        if (shop.isEmpty()) {
-            System.out.println("There are no more items to buy in the shop anymore.\n");
-        } else if (0 <= index && index <= shop.getArrayListSize() - 1) {
-            if (this.runes >= shop.getItemCost(index)) {
-                System.out.println("Successfully purchased " + shop.getItemName(index) + " for "
-                        + shop.getItemCost(index) + " runes!");
-                inventory.add(shop.getWeapon(index));
-                System.out.println(shop.getItemName(index) + " has been added to your inventory.");
-                this.runes -= shop.getItemCost(index);
-                System.out.println("You now only have " + this.runes + " runes.\n");
-                shop.removeFromInventory(index);
-            } else {
-                System.out.println("You do not have enough runes to buy " + shop.getItemName(index) + ".\n");
-            }
-        } else {
-            System.out.println("Please enter a valid index.\n");
-        }
-    }
-
-    /**
-     * Displays the character's inventory.
-     */
-    public void displayInventory() {
-        if (inventory.isEmpty()) {
-            System.out.println("Your inventory is empty.\n");
-        } else {
-            System.out.println(this.name + "'s inventory");
-            for (int i = 0; i < inventory.size(); i += 3) {
-                // check if there is a next element
-                System.out.print("_____________________________________________");
-                if (i + 2 < inventory.size()) {
-                    System.out.print("____________________________________________");
-                    System.out.print("__________________________________________\n");
-                } else if (i + 1 < inventory.size()) {
-                    System.out.print("___________________________________________\n");
-                    ;
-                } else {
-                    System.out.println();
-                }
-
-                System.out.printf("|| Index        : %-20d     ||", i);
-                if (i + 2 < inventory.size()) {
-                    System.out.printf(" Index        : %-20d     ||", i + 1);
-                    System.out.printf(" Index        : %-20d     ||%n", i + 2);
-                } else if (i + 1 < inventory.size()) {
-                    System.out.printf(" Index        : %-20d     ||%n", i + 1);
-                } else {
-                    System.out.println();
-                }
-
-                System.out.printf("|| Name         : %-25s||", inventory.get(i).getName());
-                if (i + 2 < inventory.size()) {
-                    System.out.printf(" Name         : %-25s||", inventory.get(i + 1).getName());
-                    System.out.printf(" Name         : %-25s||%n", inventory.get(i + 2).getName());
-                } else if (i + 1 < inventory.size()) {
-                    System.out.printf(" Name         : %-25s||%n", inventory.get(i + 1).getName());
-                } else {
-                    System.out.println();
-                }
-
-                System.out.printf("|| Required DEX : %-2d                       ||", inventory.get(i).getDexReq());
-                if (i + 2 < inventory.size()) {
-                    System.out.printf(" Required DEX : %-2d                       ||",
-                            inventory.get(i + 1).getDexReq());
-                    System.out.printf(" Required DEX : %-2d                       ||%n",
-                            inventory.get(i + 2).getDexReq());
-                } else if (i + 1 < inventory.size()) {
-                    System.out.printf(" Required DEX : %-2d                       ||%n",
-                            inventory.get(i + 1).getDexReq());
-                } else {
-                    System.out.println();
-                }
-
-                System.out.printf("|| Weapon HP    : %-2d                       ||", inventory.get(i).getHp());
-                if (i + 2 < inventory.size()) {
-                    System.out.printf(" Weapon HP    : %-2d                       ||", inventory.get(i + 1).getHp());
-                    System.out.printf(" Weapon HP    : %-2d                       ||%n", inventory.get(i + 2).getHp());
-                } else if (i + 1 < inventory.size()) {
-                    System.out.printf(" Weapon HP    : %-2d                       ||%n", inventory.get(i + 1).getHp());
-                } else {
-                    System.out.println();
-                }
-
-                System.out.printf("|| Weapon INT   : %-2d                       ||", inventory.get(i).getInte());
-                if (i + 2 < inventory.size()) {
-                    System.out.printf(" Weapon INT   : %-2d                       ||", inventory.get(i + 1).getInte());
-                    System.out.printf(" Weapon INT   : %-2d                       ||%n",
-                            inventory.get(i + 2).getInte());
-                } else if (i + 1 < inventory.size()) {
-                    System.out.printf(" Weapon INT   : %-2d                       ||%n",
-                            inventory.get(i + 1).getInte());
-                } else {
-                    System.out.println();
-                }
-
-                System.out.printf("|| Weapon END   : %-2d                       ||", inventory.get(i).getEnd());
-                if (i + 2 < inventory.size()) {
-                    System.out.printf(" Weapon END   : %-2d                       ||", inventory.get(i + 1).getEnd());
-                    System.out.printf(" Weapon END   : %-2d                       ||%n", inventory.get(i + 2).getEnd());
-                } else if (i + 1 < inventory.size()) {
-                    System.out.printf(" Weapon END   : %-2d                       ||%n", inventory.get(i + 1).getEnd());
-                } else {
-                    System.out.println();
-                }
-
-                System.out.printf("|| Weapon STR   : %-2d                       ||", inventory.get(i).getStr());
-                if (i + 2 < inventory.size()) {
-                    System.out.printf(" Weapon STR   : %-2d                       ||", inventory.get(i + 1).getStr());
-                    System.out.printf(" Weapon STR   : %-2d                       ||%n", inventory.get(i + 2).getStr());
-                } else if (i + 1 < inventory.size()) {
-                    System.out.printf(" Weapon STR   : %-2d                       ||%n", inventory.get(i + 1).getStr());
-                } else {
-                    System.out.println();
-                }
-
-                System.out.printf("|| Weapon FTH   : %-2d                       ||", inventory.get(i).getFth());
-                if (i + 2 < inventory.size()) {
-                    System.out.printf(" Weapon FTH   : %-2d                       ||", inventory.get(i + 1).getFth());
-                    System.out.printf(" Weapon FTH   : %-2d                       ||%n", inventory.get(i + 2).getFth());
-                } else if (i + 1 < inventory.size()) {
-                    System.out.printf(" Weapon FTH   : %-2d                       ||%n", inventory.get(i + 1).getFth());
-                } else {
-                    System.out.println();
-                }
-
-                System.out.print("_____________________________________________");
-                if (i + 2 < inventory.size()) {
-                    System.out.print("____________________________________________");
-                    System.out.print("__________________________________________\n");
-                } else if (i + 1 < inventory.size()) {
-                    System.out.print("___________________________________________\n");
-                } else {
-                    System.out.println();
-                }
-            }
-            System.out.println();
-        }
+        inventory.add(shop.getWeapon(index));
+        this.runes -= shop.getItemCost(index);
     }
 
     /**
@@ -228,18 +89,8 @@ public class Character {
      * @param index The index of the weapon to equip.
      */
     public void equipWeapon(int index) {
-        if (inventory.isEmpty()) {
-            System.out.println("You do not have any items to equip.\n");
-        } else if (!(0 <= index && index <= inventory.size() - 1)) {
-            System.out.println("Please enter a valid weapon index.\n");
-        } else if (inventory.get(index).getDexReq() > this.dex) {
-            System.out.println("Cannot equip " + inventory.get(index).getName() + ". You need at least "
-                    + inventory.get(index).getDexReq() + " dex.");
-        } else {
-            System.out.println("Sucessfully equiped " + inventory.get(index).getName());
-            this.equiped = inventory.get(index);
-            this.currentHp = 100 * ((this.equiped.getHp() + this.hp) / 2);
-        }
+        this.equiped = inventory.get(index);
+        this.currentHp = 100 * ((this.equiped.getHp() + this.hp) / 2);
     }
 
     /**
@@ -255,45 +106,34 @@ public class Character {
                 case 1:
                     this.hp += 1;
                     this.level += 1;
-                    System.out.println(this.name + " leved up to level " + this.level + "!");
-                    System.out.println("HP grew to " + this.hp + ".\n");
+                    this.runes = this.runes - levelCost;
                     break;
                 case 2:
                     this.dex += 1;
                     this.level += 1;
-                    System.out.println(this.name + " leved up to level " + this.level + "!");
-                    System.out.println("DEX grew to " + this.dex + ".\n");
+                    this.runes = this.runes - levelCost;
                     break;
                 case 3:
                     this.inte += 1;
                     this.level += 1;
-                    System.out.println(this.name + " leved up to level " + this.level + "!");
-                    System.out.println("INT grew to " + this.inte + ".\n");
+                    this.runes = this.runes - levelCost;
                     break;
                 case 4:
                     this.end += 1;
                     this.level += 1;
-                    System.out.println(this.name + " leved up to level " + this.level + "!");
-                    System.out.println("END grew to " + this.end + ".\n");
+                    this.runes = this.runes - levelCost;
                     break;
                 case 5:
                     this.str += 1;
                     this.level += 1;
-                    System.out.println(this.name + " leved up to level " + this.level + "!");
-                    System.out.println("STR grew to " + this.str + ".\n");
+                    this.runes = this.runes - levelCost;
                     break;
                 case 6:
                     this.fth += 1;
                     this.level += 1;
-                    System.out.println(this.name + " leved up to level " + this.level + "!");
-                    System.out.println("FTH grew to " + this.fth + ".\n");
+                    this.runes = this.runes - levelCost;
                     break;
-                default:
-                    System.out.println("Please input a valid number from 1-5.\n");
             }
-        } else {
-            System.out.println("You do not have enough runes to level up.");
-            System.out.println("You need at least " + levelCost + " runes for the next level.\n");
         }
     }
 
@@ -315,7 +155,6 @@ public class Character {
         } else if (movement == 'd' || movement == 'D') {
             movementType = 4; // Moving Right
         } else {
-            System.out.println("Please enter a valid input to move (WASD).\n");
             return;
         }
 
@@ -327,7 +166,6 @@ public class Character {
                     // Moving Up
                     movingTo = this.currentTileIndex - currentFloor.getWidth();
                     if (movingTo < 0 || currentFloor.getTileType(movingTo) == Tile.TileType.OutOfBounds) {
-                        System.out.println("Cannot move to this tile.\n");
                         return;
                     }
                     break;
@@ -336,7 +174,6 @@ public class Character {
                     movingTo = this.currentTileIndex - 1;
                     if ((this.currentTileIndex % currentFloor.getWidth() == 0)
                             || currentFloor.getTileType(movingTo) == Tile.TileType.OutOfBounds) {
-                        System.out.println("Cannot move to this tile.\n");
                         return;
                     }
                     break;
@@ -345,7 +182,6 @@ public class Character {
                     movingTo = this.currentTileIndex + currentFloor.getWidth();
                     if (movingTo >= currentFloor.getTilesSize()
                             || currentFloor.getTileType(movingTo) == Tile.TileType.OutOfBounds) {
-                        System.out.println("Cannot move to this tile.\n");
                         return;
                     }
                     break;
@@ -354,11 +190,9 @@ public class Character {
                     if (this.currentTileIndex % currentFloor.getWidth() != currentFloor.getWidth() - 1) {
                         movingTo = this.currentTileIndex + 1;
                         if (currentFloor.getTileType(movingTo) == Tile.TileType.OutOfBounds) {
-                            System.out.println("Cannot move to this tile.\n");
                             return;
                         }
                     } else {
-                        System.out.println("Cannot move to this tile.\n");
                         return;
                     }
                     break;
@@ -367,9 +201,6 @@ public class Character {
             }
 
             this.currentTileIndex = movingTo;
-            currentFloor.displayFloor(this);
-        } else {
-            System.out.println("Please enter a valid input to move (WASD).\n");
         }
     }
 
@@ -385,44 +216,74 @@ public class Character {
                 || (areas.get(currentAreaIndex).getFloors().get(currentFloorNumber).getTiles().get(currentTileIndex)
                 .getTileType() == Tile.TileType.FastTravelTile);
 
-        if (!canFastTravel) {
-            System.out.println("Cannot fast travel from this location.\n");
-            return;
-        }
-
         // Reset HP and spawn tiles when returning to the Game Lobby (Area 0)
         if (destinationAreaIndex == 0) {
             currentAreaIndex = destinationAreaIndex;
-            if (!(equiped == null)) {
-                currentHp = 100 * ((hp + equiped.getHp()) / 2);
-            } else {
-                currentHp = 100 * (((hp) / 2));
-            }
-            System.out.println("Fast traveled to game lobby.\n");
+            currentHp = 100 * ((hp + equiped.getHp()) / 2);
+
+            //Reset all Area 1 Spawn Tiles
+            areas.get(1).getFloors().get(0).getTiles().get(3).turnOn();
+            areas.get(1).getFloors().get(0).getTiles().get(5).turnOn();
+            areas.get(1).getFloors().get(1).getTiles().get(10).turnOn();
+            areas.get(1).getFloors().get(1).getTiles().get(21).turnOn();
+            areas.get(1).getFloors().get(1).getTiles().get(23).turnOn();
+            areas.get(1).getFloors().get(1).getTiles().get(24).turnOn();
+            areas.get(1).getFloors().get(1).getTiles().get(25).turnOn();
+            areas.get(1).getFloors().get(1).getTiles().get(27).turnOn();
+            areas.get(1).getFloors().get(1).getTiles().get(37).turnOn();
+            areas.get(1).getFloors().get(1).getTiles().get(39).turnOn();
+
+            //Reset all Area 2 Spawn Tiles
+            areas.get(2).getFloors().get(0).getTiles().get(16).turnOn();
+            areas.get(2).getFloors().get(0).getTiles().get(18).turnOn();
+            areas.get(2).getFloors().get(1).getTiles().get(3).turnOn();
+            areas.get(2).getFloors().get(1).getTiles().get(9).turnOn();
+            areas.get(2).getFloors().get(1).getTiles().get(15).turnOn();
+            areas.get(2).getFloors().get(2).getTiles().get(7).turnOn();
+            areas.get(2).getFloors().get(2).getTiles().get(27).turnOn();
+            areas.get(2).getFloors().get(3).getTiles().get(2).turnOn();
+            areas.get(2).getFloors().get(3).getTiles().get(4).turnOn();
+            areas.get(2).getFloors().get(3).getTiles().get(14).turnOn();
+            areas.get(2).getFloors().get(3).getTiles().get(16).turnOn();
+            areas.get(2).getFloors().get(4).getTiles().get(16).turnOn();
+            areas.get(2).getFloors().get(4).getTiles().get(18).turnOn();
+            areas.get(2).getFloors().get(4).getTiles().get(20).turnOn();
+            areas.get(2).getFloors().get(4).getTiles().get(30).turnOn();
+            areas.get(2).getFloors().get(4).getTiles().get(34).turnOn();
+            areas.get(2).getFloors().get(4).getTiles().get(44).turnOn();
+            areas.get(2).getFloors().get(4).getTiles().get(48).turnOn();
+
+            //Reset all Area 3 Spawn Tiles
+            areas.get(3).getFloors().get(0).getTiles().get(13).turnOn();
+            areas.get(3).getFloors().get(2).getTiles().get(3).turnOn();
+            areas.get(3).getFloors().get(2).getTiles().get(5).turnOn();
+            areas.get(3).getFloors().get(2).getTiles().get(9).turnOn();
+            areas.get(3).getFloors().get(2).getTiles().get(11).turnOn();
+            areas.get(3).getFloors().get(2).getTiles().get(15).turnOn();
+            areas.get(3).getFloors().get(2).getTiles().get(17).turnOn();
+            areas.get(3).getFloors().get(2).getTiles().get(21).turnOn();
+            areas.get(3).getFloors().get(2).getTiles().get(23).turnOn();
+
         } else if ((destinationAreaIndex == 1) && (fastTravelTileIndex == 1)) {
-            if (areas.get(1).getFloors().get(0).getTiles().get(19).getIsActive()) { // get(1) area 1, get(0) floor 1,
-                // get(19) tile index19
-                currentAreaIndex = destinationAreaIndex;
-                currentFloorNumber = 0;
-                currentTileIndex = 19;
-                System.out.println("Fast traveled to Stormveil Castle fast travel point 1.\n");
-                displayCurrentLocation();
-            } else {
-                System.out.println("This fast travel point is not yet activated.\n");
-            }
+            currentAreaIndex = destinationAreaIndex;
+            currentFloorNumber = 0;
+            currentTileIndex = 19;
         } else if ((destinationAreaIndex == 1) && (fastTravelTileIndex == 2)) {
-            if (areas.get(1).getFloors().get(2).getTiles().get(2).getIsActive()) {
-                currentAreaIndex = destinationAreaIndex;
-                currentFloorNumber = 2;
-                currentTileIndex = 2;
-                System.out.println("Fast traveled to Stormveil Castle fast travel point 2.\n");
-                displayCurrentLocation();
-            } else {
-                System.out.println("This fast travel point is not yet activated.\n");
-            }
-        } else {
-            System.out.println(
-                    "Please enter valid inputs for the fast travel points. Note: areas 2 and 3 are not yet available.\n");
+            currentAreaIndex = destinationAreaIndex;
+            currentFloorNumber = 2;
+            currentTileIndex = 2;
+        } else if ((destinationAreaIndex == 2) && (fastTravelTileIndex == 1)) {
+            currentAreaIndex = destinationAreaIndex;
+            currentFloorNumber = 0;
+            currentTileIndex = 2;
+        } else if ((destinationAreaIndex == 2) && (fastTravelTileIndex == 2)) {
+            currentAreaIndex = destinationAreaIndex;
+            currentFloorNumber = 4;
+            currentTileIndex = 3;
+        } else if ((destinationAreaIndex == 3) && (fastTravelTileIndex == 1)) {
+            currentAreaIndex = destinationAreaIndex;
+            currentFloorNumber = 0;
+            currentTileIndex = 25;
         }
     }
 
@@ -471,99 +332,6 @@ public class Character {
             System.out.println("You are in the game lobby.\n");
         } else {
             System.out.println("Invalid floor index or missing floor data.\n");
-        }
-    }
-
-    /**
-     * Interacts with the current tile.
-     */
-    public void interactTile() {
-        int currentAreaIndex = this.currentAreaIndex;
-        int currentFloorNumber = this.currentFloorNumber;
-        int currentTileIndex = this.currentTileIndex;
-
-        if (currentAreaIndex >= 0 && currentAreaIndex < areas.size()) {
-            Area currentArea = areas.get(currentAreaIndex);
-
-            if (currentFloorNumber >= 0 && currentFloorNumber < currentArea.getFloors().size()) {
-                Floor currentFloor = currentArea.getFloors().get(currentFloorNumber);
-
-                if (currentTileIndex >= 0 && currentTileIndex < currentFloor.getTilesSize()) {
-                    Tile.TileType currentTileType = currentFloor.getTileType(currentTileIndex);
-
-                    switch (currentTileType) {
-                        case RegularTile:
-                            System.out.println("You are on a regular tile.");
-                            break;
-                        case SpawnTile:
-                            if (areas.get(this.currentAreaIndex).getFloors().get(this.currentFloorNumber).getTiles()
-                                    .get(this.currentTileIndex).getIsActive()) {
-                                double randomValue = Math.random();
-                                if (randomValue <= 0.25) {
-                                    System.out.println("You found a treasure!\n");
-                                    Treasure treasure = new Treasure();
-                                    treasure.giveTreasure(this, this.currentAreaIndex);
-                                    areas.get(this.currentAreaIndex).getFloors().get(this.currentFloorNumber).getTiles()
-                                            .get(this.currentTileIndex).turnOff();
-                                } else {
-                                    this.isBattling = true;
-                                    this.battlingEnemy();
-                                }
-                            } else {
-                                System.out.println("This spawn tile has already been interacted with.\n");
-                            }
-                            break;
-                        case BossTile:
-                            this.isBattling = true;
-                            this.battlingBoss();
-                            break;
-                        case DoorTile:
-                            if (currentAreaIndex == 1 && currentFloorNumber == 0 && currentTileIndex == 1) {
-                                System.out.println("Moved to a new floor.\n");
-                                this.currentFloorNumber = 1;
-                                this.currentTileIndex = 45;
-                                displayCurrentLocation();
-
-                            } else if (currentAreaIndex == 1 && currentFloorNumber == 1 && currentTileIndex == 45) {
-                                System.out.println("Moved to a new floor.\n");
-                                this.currentFloorNumber = 0;
-                                this.currentTileIndex = 1;
-                                displayCurrentLocation();
-
-                            } else if (currentAreaIndex == 1 && currentFloorNumber == 1 && currentTileIndex == 3) {
-                                System.out.println("Moved to a new floor.\n");
-                                this.currentFloorNumber = 2;
-                                this.currentTileIndex = 32;
-                                displayCurrentLocation();
-
-                            } else if (currentAreaIndex == 1 && currentFloorNumber == 2 && currentTileIndex == 32) {
-                                System.out.println("Moved to a new floor.\n");
-                                this.currentFloorNumber = 2;
-                                this.currentTileIndex = 32;
-                                displayCurrentLocation();
-                            }
-                            break;
-
-                        case FastTravelTile:
-                            areas.get(this.currentAreaIndex).getFloors().get(this.currentFloorNumber).getTiles()
-                                    .get(this.currentTileIndex).turnOn();
-                            System.out.println("You have activated this fast travel point!");
-                            System.out.println("Brining you back to the game lobby!\n");
-                            fastTravelToArea(0, 0);
-                            // Add any specific actions for FastTravelTile
-                            break;
-                        case CreditsTile:
-                            System.out.println("You are on a credits tile.");
-                            // Add any specific actions for CreditsTile
-                            break;
-                        case OutOfBounds:
-                            System.out.println("You are out of bounds.");
-                            // Handle out of bounds scenario
-                            break;
-                    }
-                }
-
-            }
         }
     }
 
@@ -617,6 +385,16 @@ public class Character {
                 if (enemy.isBoss()) {
                     areas.get(this.currentAreaIndex).getFloors().get(this.currentFloorNumber).getTiles().get(this.currentTileIndex).turnOff();
                     System.out.println("GREAT ENEMY FELLED!");
+                    if (currentAreaIndex == 1) {
+                        areas.get(1).getFloors().get(this.currentFloorNumber).getTiles()
+                                .get(2).turnOn();
+                    } else if (currentAreaIndex == 2){
+                        areas.get(this.currentAreaIndex).getFloors().get(this.currentFloorNumber).getTiles()
+                                .get(3).turnOn();
+                    } else if (currentAreaIndex == 3){
+                        areas.get(this.currentAreaIndex).getFloors().get(this.currentFloorNumber).getTiles()
+                                .get(3).turnOff();
+                    }
                 } else {
                     areas.get(this.currentAreaIndex).getFloors().get(this.currentFloorNumber).getTiles().get(this.currentTileIndex).turnOff();
                     System.out.println("ENEMY FELLED!");
@@ -695,10 +473,7 @@ public class Character {
     /**
      * Initiates a battle with a regular enemy.
      */
-    public void battlingEnemy() {
-        Random random = new Random();
-        int randomNumber = random.nextInt(3) + 1;
-        Enemy enemy = new Enemy(randomNumber, this.currentAreaIndex);
+    public void battlingEnemy(Enemy enemy) {
 
         while (enemy.isAlive() && this.isBattling) {
             System.out.println("Select attack type (1 for Physical, 2 for Sorcery, 3 for Incantation, 0 for Dodge): ");
@@ -726,9 +501,7 @@ public class Character {
     /**
      * Initiates a battle with a boss enemy.
      */
-    public void battlingBoss() {
-
-        Enemy enemy = new Enemy(this.currentAreaIndex);
+    public void battlingBoss(Enemy enemy) {
 
         System.out.println("Battle started with " + enemy.getName() + "!\n");
 
@@ -834,6 +607,10 @@ public class Character {
         return fth;
     }
 
+    public int getLevelReq(){
+        return (this.level * 100) / 2;
+    }
+
 
     /**
      * Checks if the character has selected dodge.
@@ -851,6 +628,9 @@ public class Character {
      */
     public int getCurrentTileIndex() {
         return currentTileIndex;
+    }
+    public int getCurrentFloorNumber(){
+        return currentFloorNumber;
     }
 
     /**
@@ -871,6 +651,10 @@ public class Character {
         return runes;
     }
 
+    public int getMaxHp(){
+        return 100 * ((hp + equiped.getHp()) / 2);
+    }
+
     /**
      * Gets the character's equiped weapon.
      *
@@ -879,7 +663,16 @@ public class Character {
     public Weapon getEquiped() {
         return equiped;
     }
+    public void getTreasure() {
+        Treasure treasure = new Treasure();
+        treasure.giveTreasure(this, this.currentAreaIndex);
+    }
 
+    public void setCharacterLocation(int area, int floor, int tile){
+        this.currentAreaIndex = area;
+        this.currentFloorNumber = floor;
+        this.currentTileIndex = tile;
+    }
     /**
      * Gets the character's inventory.
      *

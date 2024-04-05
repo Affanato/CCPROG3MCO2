@@ -1,12 +1,9 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 public class CharacterCreationController {
-
     private String selectedName;
     private int selectedClassIndex;
     private CharacterCreationView characterCreationView;
-
     public CharacterCreationController(CharacterCreationModel characterCreationModel) {
         this.characterCreationView = new CharacterCreationView();
         characterCreationView.addCharacterNameFieldListener(new ActionListener() {

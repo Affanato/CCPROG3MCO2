@@ -12,8 +12,6 @@ public class CharacterCreationView {
     private final JButton job5;
     private final JButton job6;
     private final JButton backToTitle;
-
-
     public CharacterCreationView() {
         JLabel characterCreation = new JLabel("Character Creation");
         characterCreation.setForeground(Color.ORANGE);
@@ -317,7 +315,6 @@ public class CharacterCreationView {
         backToTitle.setBorder(BorderFactory.createEtchedBorder());
 
         this.feedbackLabel = new JLabel();
-        this.feedbackLabel.setPreferredSize(new Dimension(220, 30));
         this.feedbackLabel.setForeground(Color.RED);
         this.feedbackLabel.setBounds(320,380,200,100);
         this.feedbackLabel.setFont(new Font("Garamond", Font.BOLD, 20));
@@ -398,6 +395,7 @@ public class CharacterCreationView {
     public void addCharacterNameFieldListener(ActionListener listener) {
         characterNameField.addActionListener(listener);
     }
+
     public void addJob1Listener(ActionListener listener) {
         job1.addActionListener(listener);
     }
@@ -437,5 +435,4 @@ public class CharacterCreationView {
     public void disposeFrame () {
         this.mainFrame.dispose();
     }
-
 }

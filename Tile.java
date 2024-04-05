@@ -25,6 +25,10 @@ public class Tile {
             this.isActive = false;
         } else if (tileType == TileType.SpawnTile) {
             this.isActive = true;
+        } else if (tileType == TileType.BossTile) {
+            this.isActive = true;
+        } else if (tileType == TileType.DoorTile) {
+            this.isActive = true;
         }
     }
 
