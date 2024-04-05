@@ -4,13 +4,13 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class AreaScreenView {
-    private JFrame mainFrame = new JFrame("Elden Rouge: CCPROG3 MCO Cosing & Tujan");
-    private JButton W;
-    private JButton A;
-    private JButton S;
-    private JButton D;
-    private JButton interact;
-    private JLabel feedbackLabel;
+    private final JFrame mainFrame = new JFrame("Elden Rouge: CCPROG3 MCO Cosing & Tujan");
+    private final JButton W;
+    private final JButton A;
+    private final JButton S;
+    private final JButton D;
+    private final JButton interact;
+    private final JLabel feedbackLabel;
     public AreaScreenView(Character character){
         String areaName = character.getAreas().get(character.getCurrentAreaIndex()).getName();
         int floorHeight = character.getAreas().get(character.getCurrentAreaIndex()).getFloors().get(character.getCurrentFloorNumber()).getHeight();
@@ -147,8 +147,48 @@ public class AreaScreenView {
 
         this.feedbackLabel = new JLabel();
         this.feedbackLabel.setForeground(Color.RED);
-        this.feedbackLabel.setBounds(530,225,200,100);
+        this.feedbackLabel.setBounds(530,225,300,100);
         this.feedbackLabel.setFont(new Font("Garamond", Font.BOLD, 15));
+
+        ColoredSquare regularExample = new ColoredSquare(530,340, 15,15,Color.gray,"");
+        regularExample.setBounds(530,340,15,15);
+
+        ColoredSquare spawnExample = new ColoredSquare(530,360, 15, 15, Color.blue, "");
+        spawnExample.setBounds(530,360,15,15);
+
+        ColoredSquare bossExample = new ColoredSquare(530,380, 15, 15, Color.red, "");
+        bossExample.setBounds(530,380,15,15);
+
+        ColoredSquare doorExample = new ColoredSquare(530,400, 15, 15, Color.orange, "");
+        doorExample.setBounds(530,400,15,15);
+
+        ColoredSquare fastExample = new ColoredSquare(530,420, 15, 15, Color.green, "");
+        fastExample.setBounds(530,420,15,15);
+
+        JLabel regularTile = new JLabel("Regular Tile");
+        regularTile.setForeground(Color.WHITE);
+        regularTile.setBounds(550,340,500,15);
+        regularTile.setFont(new Font("Garamond", Font.BOLD,15));
+
+        JLabel spawnTile = new JLabel("Spawn Tile");
+        spawnTile.setForeground(Color.WHITE);
+        spawnTile.setBounds(550,360,500,15);
+        spawnTile.setFont(new Font("Garamond", Font.BOLD,15));
+
+        JLabel bossTile = new JLabel("Boss Tile");
+        bossTile.setForeground(Color.WHITE);
+        bossTile.setBounds(550,380,500,15);
+        bossTile.setFont(new Font("Garamond", Font.BOLD,15));
+
+        JLabel doorTile = new JLabel("Door Tile");
+        doorTile.setForeground(Color.WHITE);
+        doorTile.setBounds(550,400,500,15);
+        doorTile.setFont(new Font("Garamond", Font.BOLD,15));
+
+        JLabel fastTile = new JLabel("Fast Travel Tile");
+        fastTile.setForeground(Color.WHITE);
+        fastTile.setBounds(550,420,500,15);
+        fastTile.setFont(new Font("Garamond", Font.BOLD,15));
 
         mainFrame.add(areaNameText);
         mainFrame.add(W);
@@ -159,6 +199,16 @@ public class AreaScreenView {
         mainFrame.add(feedbackLabel);
         mainFrame.add(runes);
         mainFrame.add(HP);
+        mainFrame.add(regularExample);
+        mainFrame.add(regularTile);
+        mainFrame.add(spawnExample);
+        mainFrame.add(spawnTile);
+        mainFrame.add(bossExample);
+        mainFrame.add(bossTile);
+        mainFrame.add(doorExample);
+        mainFrame.add(doorTile);
+        mainFrame.add(fastExample);
+        mainFrame.add(fastTile);
 
         mainFrame.setVisible(true);
     }
@@ -185,43 +235,25 @@ public class AreaScreenView {
     }
     public boolean canMoveUp(Character character){
         int movingTo = character.getCurrentTileIndex() - character.getAreas().get(character.getCurrentAreaIndex()).getFloors().get(character.getCurrentFloorNumber()).getWidth();
-        if (movingTo < 0 || character.getAreas().get(character.getCurrentAreaIndex()).getFloors().get(character.getCurrentFloorNumber()).getTiles().get(movingTo).getTileType() == Tile.TileType.OutOfBounds) {
-            return false;
-        } else {
-            return true;
-        }
+        return movingTo >= 0 && character.getAreas().get(character.getCurrentAreaIndex()).getFloors().get(character.getCurrentFloorNumber()).getTiles().get(movingTo).getTileType() != Tile.TileType.OutOfBounds;
     }
     public boolean canMoveLeft(Character character){
         int currentTileIndex = character.getCurrentTileIndex();
         int movingTo = currentTileIndex - 1;
-
-        if (currentTileIndex % character.getAreas().get(character.getCurrentAreaIndex()).getFloors().get(character.getCurrentFloorNumber()).getWidth() == 0 || movingTo < 0 || character.getAreas().get(character.getCurrentAreaIndex()).getFloors().get(character.getCurrentFloorNumber()).getTiles().get(movingTo).getTileType() == Tile.TileType.OutOfBounds) {
-            return false;
-        } else {
-            return true;
-        }
+        return currentTileIndex % character.getAreas().get(character.getCurrentAreaIndex()).getFloors().get(character.getCurrentFloorNumber()).getWidth() != 0 && movingTo >= 0 && character.getAreas().get(character.getCurrentAreaIndex()).getFloors().get(character.getCurrentFloorNumber()).getTiles().get(movingTo).getTileType() != Tile.TileType.OutOfBounds;
     }
     public boolean canMoveDown(Character character){
         int movingTo = character.getCurrentTileIndex() + character.getAreas().get(character.getCurrentAreaIndex()).getFloors().get(character.getCurrentFloorNumber()).getWidth();
-        if((movingTo >= character.getAreas().get(character.getCurrentAreaIndex()).getFloors().get(character.getCurrentFloorNumber()).getTilesSize()) || character.getAreas().get(character.getCurrentAreaIndex()).getFloors().get(character.getCurrentFloorNumber()).getTiles().get(movingTo).getTileType() == Tile.TileType.OutOfBounds) {
-            return false;
-        } else {
-            return true;
-        }
+        return (movingTo < character.getAreas().get(character.getCurrentAreaIndex()).getFloors().get(character.getCurrentFloorNumber()).getTilesSize()) && character.getAreas().get(character.getCurrentAreaIndex()).getFloors().get(character.getCurrentFloorNumber()).getTiles().get(movingTo).getTileType() != Tile.TileType.OutOfBounds;
     }
     public boolean canMoveRight(Character character){
         if (character.getCurrentTileIndex() % character.getAreas().get(character.getCurrentAreaIndex()).getFloors().get(character.getCurrentFloorNumber()).getWidth() != character.getAreas().get(character.getCurrentAreaIndex()).getFloors().get(character.getCurrentFloorNumber()).getWidth() - 1) {
             int movingTo = character.getCurrentTileIndex() + 1;
-            if (character.getAreas().get(character.getCurrentAreaIndex()).getFloors().get(character.getCurrentFloorNumber()).getTiles().get(movingTo).getTileType() == Tile.TileType.OutOfBounds) {
-                return false;
-            } else {
-                return true;
-            }
+            return character.getAreas().get(character.getCurrentAreaIndex()).getFloors().get(character.getCurrentFloorNumber()).getTiles().get(movingTo).getTileType() != Tile.TileType.OutOfBounds;
         } else {
             return false;
         }
     }
-
     public void dispose(){
         mainFrame.dispose();
     }

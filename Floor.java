@@ -299,7 +299,6 @@ public class Floor {
                             tiles.add(new Tile(Tile.TileType.RegularTile));
                             tiles.add(new Tile(Tile.TileType.RegularTile));
                             tiles.add(new Tile(Tile.TileType.RegularTile));
-                            tiles.add(new Tile(Tile.TileType.RegularTile));
                             tiles.add(new Tile(Tile.TileType.DoorTile));
 
                             //row 5

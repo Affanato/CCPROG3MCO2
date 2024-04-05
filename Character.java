@@ -761,7 +761,16 @@ public class Character {
     public Weapon getEquiped() {
         return equiped;
     }
+    public void getTreasure() {
+        Treasure treasure = new Treasure();
+        treasure.giveTreasure(this, this.currentAreaIndex);
+    }
 
+    public void setCharacterLocation(int area, int floor, int tile){
+        this.currentAreaIndex = area;
+        this.currentFloorNumber = floor;
+        this.currentTileIndex = tile;
+    }
     /**
      * Gets the character's inventory.
      *
