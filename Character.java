@@ -757,6 +757,10 @@ public class Character {
         return runes;
     }
 
+    public int getMaxHp(){
+        return 100 * ((hp + equiped.getHp()) / 2);
+    }
+
     /**
      * Gets the character's equiped weapon.
      *

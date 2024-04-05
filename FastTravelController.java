@@ -9,6 +9,7 @@ public class FastTravelController {
 
         fastTravelView.addArea1TP1ActionListener(new ActionListener(){
            public void actionPerformed(ActionEvent e) {
+               fastTravelView.disposeFrame();
                fastTravelModel.travelArea1TP1(character);
            }
         });
