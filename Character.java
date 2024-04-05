@@ -166,7 +166,6 @@ public class Character {
                     // Moving Up
                     movingTo = this.currentTileIndex - currentFloor.getWidth();
                     if (movingTo < 0 || currentFloor.getTileType(movingTo) == Tile.TileType.OutOfBounds) {
-                        System.out.println("Cannot move to this tile.\n");
                         return;
                     }
                     break;
@@ -175,7 +174,6 @@ public class Character {
                     movingTo = this.currentTileIndex - 1;
                     if ((this.currentTileIndex % currentFloor.getWidth() == 0)
                             || currentFloor.getTileType(movingTo) == Tile.TileType.OutOfBounds) {
-                        System.out.println("Cannot move to this tile.\n");
                         return;
                     }
                     break;
@@ -184,7 +182,6 @@ public class Character {
                     movingTo = this.currentTileIndex + currentFloor.getWidth();
                     if (movingTo >= currentFloor.getTilesSize()
                             || currentFloor.getTileType(movingTo) == Tile.TileType.OutOfBounds) {
-                        System.out.println("Cannot move to this tile.\n");
                         return;
                     }
                     break;
@@ -193,11 +190,9 @@ public class Character {
                     if (this.currentTileIndex % currentFloor.getWidth() != currentFloor.getWidth() - 1) {
                         movingTo = this.currentTileIndex + 1;
                         if (currentFloor.getTileType(movingTo) == Tile.TileType.OutOfBounds) {
-                            System.out.println("Cannot move to this tile.\n");
                             return;
                         }
                     } else {
-                        System.out.println("Cannot move to this tile.\n");
                         return;
                     }
                     break;
@@ -206,9 +201,6 @@ public class Character {
             }
 
             this.currentTileIndex = movingTo;
-            currentFloor.displayFloor(this);
-        } else {
-            System.out.println("Please enter a valid input to move (WASD).\n");
         }
     }
 

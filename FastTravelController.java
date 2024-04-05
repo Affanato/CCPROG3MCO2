@@ -16,6 +16,7 @@ public class FastTravelController {
         fastTravelView.addArea1TP2ActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
                 if(fastTravelView.isA1TP2Active(character)){
+                    fastTravelView.disposeFrame();
                     fastTravelModel.travelArea1TP2(character);
                 } else {
                     fastTravelView.setFeedbackLabel("You cannot travel to Area 1 Warp Tile 2 yet");
@@ -24,12 +25,14 @@ public class FastTravelController {
         });
         fastTravelView.addArea2TP1ActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
+                fastTravelView.disposeFrame();
                 fastTravelModel.travelArea2TP1(character);
             }
         });
         fastTravelView.addArea2TP2ActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if(fastTravelView.isA2TP2Active(character)){
+                    fastTravelView.disposeFrame();
                     fastTravelModel.travelArea2TP2(character);
                 } else {
                     fastTravelView.setFeedbackLabel("You cannot travel to Area 2 Warp Tile 2 yet");
@@ -39,6 +42,7 @@ public class FastTravelController {
         fastTravelView.addArea3TP1ActionListner(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
                 if(fastTravelView.isA3TP1Active(character)){
+                    fastTravelView.disposeFrame();
                     fastTravelModel.travelArea3TP1(character);
                 } else {
                     fastTravelView.setFeedbackLabel("You cannot travel to Area 3 yet");

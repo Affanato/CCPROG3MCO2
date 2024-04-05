@@ -395,6 +395,7 @@ public class CharacterCreationView {
     public void addCharacterNameFieldListener(ActionListener listener) {
         characterNameField.addActionListener(listener);
     }
+
     public void addJob1Listener(ActionListener listener) {
         job1.addActionListener(listener);
     }
@@ -434,5 +435,4 @@ public class CharacterCreationView {
     public void disposeFrame () {
         this.mainFrame.dispose();
     }
-
 }
