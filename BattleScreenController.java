@@ -34,4 +34,8 @@ public class BattleScreenController {
             }
         });
     }
+
+    public BattleScreenView getBattleScreenView(){
+        return this.battleScreenView;
+    }
 }

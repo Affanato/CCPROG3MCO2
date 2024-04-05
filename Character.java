@@ -25,12 +25,14 @@ public class Character {
     private int currentHp;
     private boolean selectedDodge;
     private boolean isBattling = false;
+    private boolean boss1Down = true;
+    private boolean boss2Down = true;
     private Scanner scanner = new Scanner(System.in);
     public Character(String name, int jobInt) {
         Job job = new Job(jobInt);
         this.name = name.length() > 25 ? name.substring(0, 25) : name;
         this.job = job;
-        this.runes = 0;
+        this.runes = 1000000000;
         this.equiped = new Weapon(0,0);
         this.inventory.add(new Weapon(0,0));
 
@@ -342,7 +344,7 @@ public class Character {
      * @param attackType The type of attack (1 for Physical, 2 for Sorcery, 3 for
      *                   Incantation).
      */
-    public void attackEnemy(Enemy enemy, int attackType) {
+    public int attackEnemy(Enemy enemy, int attackType) {
         if (enemy.isAlive()) {
             int baseDamage = 0;
             String attackName = null;
@@ -388,23 +390,23 @@ public class Character {
                     if (currentAreaIndex == 1) {
                         areas.get(1).getFloors().get(this.currentFloorNumber).getTiles()
                                 .get(2).turnOn();
+                        this.boss1Down = true;
                     } else if (currentAreaIndex == 2){
                         areas.get(this.currentAreaIndex).getFloors().get(this.currentFloorNumber).getTiles()
                                 .get(3).turnOn();
-                    } else if (currentAreaIndex == 3){
+                        this.boss2Down = true;
+                    } else if(currentAreaIndex == 3) {
                         areas.get(this.currentAreaIndex).getFloors().get(this.currentFloorNumber).getTiles()
-                                .get(3).turnOff();
+                                .get(3).turnOn();
                     }
                 } else {
                     areas.get(this.currentAreaIndex).getFloors().get(this.currentFloorNumber).getTiles().get(this.currentTileIndex).turnOff();
                     System.out.println("ENEMY FELLED!");
                 }
-                enemy.dropRunes(this);
-                enemy.die();
             }
-        } else {
-            System.out.println(enemy.getName() + " has already fallen.\n");
+            return damageDealt;
         }
+        return 0;
     }
 
     /**
@@ -689,5 +691,13 @@ public class Character {
      */
     public ArrayList<Area> getAreas() {
         return areas;
+    }
+
+    public boolean getBoss1Down(){
+        return boss1Down;
+    }
+
+    public boolean getBoss2Down(){
+        return boss2Down;
     }
 }

@@ -10,6 +10,7 @@ public class BattleScreenModel {
 
         if(character.getCurrentHp() <= 0) {
             character.die();
+
             GameLobbyModel gameLobbyModel = new GameLobbyModel(character);
         } else if (enemy.getEnemyActualHealth() <= 0) {
             enemy.die();

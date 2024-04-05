@@ -150,36 +150,18 @@ public class Enemy {
 
                 int randomValue = new Random().nextInt(99) + 1;
                 if (dodgeChance * 100 > randomValue) {
-                    System.out.println(character.getName() + " has successfully dodged the attack.\n");
                 } else {
-                    System.out.println(character.getName() + " couldn't dodge the attack.");
                     Random random = new Random();
                     int attackValue = random.nextBoolean() ? enemyAttackLow : enemyAttackHigh;
 
                     character.takeDamage(attackValue);
-                    System.out.println(this.name + " attacked " + character.getName() + " for " + attackValue + " HP.");
-                    System.out.println(character.getName() + " has " + character.getCurrentHp() + " HP left.\n");
-
-                    if (character.getCurrentHp() == 0) {
-                        System.out.println("YOU DIED!");
-                        character.die();
-                    }
                 }
             } else {
                 Random random = new Random();
                 int attackValue = random.nextBoolean() ? enemyAttackLow : enemyAttackHigh;
 
                 character.takeDamage(attackValue);
-                System.out.println(this.name + " attacked " + character.getName() + " for " + attackValue + " HP.");
-                System.out.println(character.getName() + " has " + character.getCurrentHp() + " HP left.\n");
-
-                if (character.getCurrentHp() == 0) {
-                    System.out.println("YOU DIED!");
-                    character.die();
-                }
             }
-        } else {
-            System.out.println(this.name + " has fallen and can not attack.\n");
         }
     }
 
@@ -228,7 +210,6 @@ public class Enemy {
      */
     public void dropRunes(Character character) {
         if (this.enemyActualHealth <= 0) {
-            System.out.println(this.runesDropped + " runes received!");
             character.receiveRunes(this.runesDropped);
         }
     }
