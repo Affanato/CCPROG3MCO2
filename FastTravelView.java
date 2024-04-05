@@ -150,10 +150,10 @@ public class FastTravelView {
         return character.getAreas().get(1).getFloors().get(2).getTiles().get(2).getIsActive();
     }
     public boolean isA2TP2Active(Character character){
-        return false; //comment out
+        return character.getAreas().get(2).getFloors().get(4).getTiles().get(3).getIsActive();
     }
     public boolean isA3TP1Active(Character character){
-        return false; //comment out
+        return character.getBoss1Down() && character.getBoss2Down();
     }
     public void setFeedbackLabel(String text) {
         feedbackLabel.setText(text);

@@ -29,6 +29,7 @@ public class AreaScreenModel {
         BattleScreenModel battleScreenModel = new BattleScreenModel(character, enemy);
     }
     public void travelBack(Character character){
+        character.fastTravelToArea(0);
         GameLobbyModel gameLobbyModel = new GameLobbyModel(character);
     }
     public void goCredits(){
@@ -84,13 +85,13 @@ public class AreaScreenModel {
                     character.setCharacterLocation(3, 1, 45);
                     AreaScreenModel areaScreenModel = new AreaScreenModel(character);
                 } else if((character.getCurrentFloorNumber()) == 1 && (character.getCurrentTileIndex()) == 45) {
-                    character.setCharacterLocation(2, 0, 1);
+                    character.setCharacterLocation(3, 0, 1);
                     AreaScreenModel areaScreenModel = new AreaScreenModel(character);
                 } else if((character.getCurrentFloorNumber()) == 1 && (character.getCurrentTileIndex()) == 3) {
-                character.setCharacterLocation(2, 2, 25);
+                character.setCharacterLocation(3, 2, 25);
                 AreaScreenModel areaScreenModel = new AreaScreenModel(character);
                 } else if ((character.getCurrentFloorNumber()) == 2 && (character.getCurrentTileIndex()) == 25) {
-                    character.setCharacterLocation(2, 1, 3);
+                    character.setCharacterLocation(3, 1, 3);
                     AreaScreenModel areaScreenModel = new AreaScreenModel(character);
                 }
                 break;

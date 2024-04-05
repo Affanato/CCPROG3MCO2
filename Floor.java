@@ -431,7 +431,7 @@ public class Floor {
                     switch(floorNumber) {
                         case 1:
                             this.height = 9;
-                            this.width = 8;
+                            this.width = 3;
 
                             //row 1
                             tiles.add(new Tile(Tile.TileType.RegularTile));
@@ -477,6 +477,8 @@ public class Floor {
                             tiles.add(new Tile(Tile.TileType.RegularTile));
                             tiles.add(new Tile(Tile.TileType.FastTravelTile));
                             tiles.add(new Tile(Tile.TileType.RegularTile));
+
+                            tiles.get(25).turnOn();
                             break;
                         case 2:
                             this.height = 7;
@@ -544,6 +546,8 @@ public class Floor {
                             tiles.add(new Tile(Tile.TileType.RegularTile));
                             tiles.add(new Tile(Tile.TileType.RegularTile));
                             tiles.add(new Tile(Tile.TileType.OutOfBounds));
+
+                            tiles.get(3).turnOff();
                             break;
                         case 3:
                             this.height = 9;

@@ -24,6 +24,5 @@ public class FastTravelModel {
     }
     public void backToGameLobby(Character character){
         GameLobbyModel gameLobbyModel = new GameLobbyModel(character);
-        AreaScreenModel areaScreenModel = new AreaScreenModel(character);
     }
 }
