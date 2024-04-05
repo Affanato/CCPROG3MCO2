@@ -336,99 +336,6 @@ public class Character {
     }
 
     /**
-     * Interacts with the current tile.
-     */
-    public void interactTile() {
-        int currentAreaIndex = this.currentAreaIndex;
-        int currentFloorNumber = this.currentFloorNumber;
-        int currentTileIndex = this.currentTileIndex;
-
-        if (currentAreaIndex >= 0 && currentAreaIndex < areas.size()) {
-            Area currentArea = areas.get(currentAreaIndex);
-
-            if (currentFloorNumber >= 0 && currentFloorNumber < currentArea.getFloors().size()) {
-                Floor currentFloor = currentArea.getFloors().get(currentFloorNumber);
-
-                if (currentTileIndex >= 0 && currentTileIndex < currentFloor.getTilesSize()) {
-                    Tile.TileType currentTileType = currentFloor.getTileType(currentTileIndex);
-
-                    switch (currentTileType) {
-                        case RegularTile:
-                            System.out.println("You are on a regular tile.");
-                            break;
-                        case SpawnTile:
-                            if (areas.get(this.currentAreaIndex).getFloors().get(this.currentFloorNumber).getTiles()
-                                    .get(this.currentTileIndex).getIsActive()) {
-                                double randomValue = Math.random();
-                                if (randomValue <= 0.25) {
-                                    System.out.println("You found a treasure!\n");
-                                    Treasure treasure = new Treasure();
-                                    treasure.giveTreasure(this, this.currentAreaIndex);
-                                    areas.get(this.currentAreaIndex).getFloors().get(this.currentFloorNumber).getTiles()
-                                            .get(this.currentTileIndex).turnOff();
-                                } else {
-                                    this.isBattling = true;
-                                    this.battlingEnemy();
-                                }
-                            } else {
-                                System.out.println("This spawn tile has already been interacted with.\n");
-                            }
-                            break;
-                        case BossTile:
-                            this.isBattling = true;
-                            this.battlingBoss();
-                            break;
-                        case DoorTile:
-                            if (currentAreaIndex == 1 && currentFloorNumber == 0 && currentTileIndex == 1) {
-                                System.out.println("Moved to a new floor.\n");
-                                this.currentFloorNumber = 1;
-                                this.currentTileIndex = 45;
-                                displayCurrentLocation();
-
-                            } else if (currentAreaIndex == 1 && currentFloorNumber == 1 && currentTileIndex == 45) {
-                                System.out.println("Moved to a new floor.\n");
-                                this.currentFloorNumber = 0;
-                                this.currentTileIndex = 1;
-                                displayCurrentLocation();
-
-                            } else if (currentAreaIndex == 1 && currentFloorNumber == 1 && currentTileIndex == 3) {
-                                System.out.println("Moved to a new floor.\n");
-                                this.currentFloorNumber = 2;
-                                this.currentTileIndex = 32;
-                                displayCurrentLocation();
-
-                            } else if (currentAreaIndex == 1 && currentFloorNumber == 2 && currentTileIndex == 32) {
-                                System.out.println("Moved to a new floor.\n");
-                                this.currentFloorNumber = 2;
-                                this.currentTileIndex = 32;
-                                displayCurrentLocation();
-                            }
-                            break;
-
-                        case FastTravelTile:
-                            areas.get(this.currentAreaIndex).getFloors().get(this.currentFloorNumber).getTiles()
-                                    .get(this.currentTileIndex).turnOn();
-                            System.out.println("You have activated this fast travel point!");
-                            System.out.println("Brining you back to the game lobby!\n");
-                            fastTravelToArea(0, 0);
-                            // Add any specific actions for FastTravelTile
-                            break;
-                        case CreditsTile:
-                            System.out.println("You are on a credits tile.");
-                            // Add any specific actions for CreditsTile
-                            break;
-                        case OutOfBounds:
-                            System.out.println("You are out of bounds.");
-                            // Handle out of bounds scenario
-                            break;
-                    }
-                }
-
-            }
-        }
-    }
-
-    /**
      * Attacks an enemy.
      *
      * @param enemy      The enemy to attack.
@@ -566,10 +473,7 @@ public class Character {
     /**
      * Initiates a battle with a regular enemy.
      */
-    public void battlingEnemy() {
-        Random random = new Random();
-        int randomNumber = random.nextInt(3) + 1;
-        Enemy enemy = new Enemy(randomNumber, this.currentAreaIndex);
+    public void battlingEnemy(Enemy enemy) {
 
         while (enemy.isAlive() && this.isBattling) {
             System.out.println("Select attack type (1 for Physical, 2 for Sorcery, 3 for Incantation, 0 for Dodge): ");
@@ -597,9 +501,7 @@ public class Character {
     /**
      * Initiates a battle with a boss enemy.
      */
-    public void battlingBoss() {
-
-        Enemy enemy = new Enemy(this.currentAreaIndex);
+    public void battlingBoss(Enemy enemy) {
 
         System.out.println("Battle started with " + enemy.getName() + "!\n");
 

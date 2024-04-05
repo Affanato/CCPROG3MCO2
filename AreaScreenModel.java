@@ -1,5 +1,7 @@
+import java.util.Random;
+
 public class AreaScreenModel {
-    private AreaScreenController areaScreenController;
+    private final AreaScreenController areaScreenController;
     public AreaScreenModel (Character character){
         this.areaScreenController = new AreaScreenController(this, character);
     }
@@ -13,10 +15,18 @@ public class AreaScreenModel {
         areaScreenModel.getAreaScreenController().getAreaScreenView().setFeedbackLabel("You found treasure");
     }
     public void battleEnemy(Character character){
-        character.battlingEnemy();
+        Random random = new Random();
+        int randomNumber = random.nextInt(3) + 1;
+        Enemy enemy = new Enemy(randomNumber, character.getCurrentAreaIndex());
+        character.battlingEnemy(enemy);
+
+        BattleScreenModel battleScreenModel = new BattleScreenModel(character, enemy);
     }
     public void battleBoss(Character character){
-        character.battlingBoss();
+        Enemy enemy = new Enemy(character.getCurrentAreaIndex());
+        character.battlingBoss(enemy);
+
+        BattleScreenModel battleScreenModel = new BattleScreenModel(character, enemy);
     }
     public void travelBack(Character character){
         GameLobbyModel gameLobbyModel = new GameLobbyModel(character);
