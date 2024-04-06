@@ -32,7 +32,7 @@ public class Character {
         Job job = new Job(jobInt);
         this.name = name.length() > 25 ? name.substring(0, 25) : name;
         this.job = job;
-        this.runes = 1000000000;
+        this.runes = 0;
         this.equiped = new Weapon(0,0);
         this.inventory.add(new Weapon(0,0));
 
